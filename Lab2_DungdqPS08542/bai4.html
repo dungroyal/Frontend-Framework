@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,62 +10,194 @@
     <title>Bài 4 | Bootstrap 4 | Đoàn Quốc Dũng</title>
     <link rel="shortcut icon" href="https://cdn.worldvectorlogo.com/logos/bootstrap-4.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+
+<body>
     <header class="row bg-success">
         <div class="title m-auto p-4 blockquote text-white font-weight-bold">Bài 4 - Điền nội dung các tab - Bootstrap 4</div>
     </header>
     <nav class="row bg-dark">
-        <div class="container bg-dark">      
-            <div class="navbar navbar-expand-lg navbar-dark bg-dark">   
+        <div class="container bg-dark">
+            <div class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item active">
-                        <a class="nav-link" href="index.html"><i class="fas fa-clipboard-check"></i> Bài 1 </a>
+                            <a class="nav-link" href="index.html"><i class="fas fa-clipboard-check"></i> Bài 1 </a>
                         </li>
                         <li class="nav-item active">
-                        <a class="nav-link" href="bai2.html"><i class="fas fa-clipboard-check"></i> Bài 2</a>
+                            <a class="nav-link" href="bai2.html"><i class="fas fa-clipboard-check"></i> Bài 2</a>
                         </li>
                         <li class="nav-item active">
-                        <a class="nav-link" href="bai3.html"><i class="fas fa-clipboard-check"></i> Bài 3</a>
+                            <a class="nav-link" href="bai3.html"><i class="fas fa-clipboard-check"></i> Bài 3</a>
                         </li>
                         <li class="nav-item active">
-                        <a class="nav-link" href="bai4.html"><i class="fas fa-clipboard-check"></i> Bài 4</a>
+                            <a class="nav-link" href="bai4.html"><i class="fas fa-clipboard-check"></i> Bài 4</a>
                         </li>
                         <li class="nav-item active">
-                        <a class="nav-link" href="bai5.html"><i class="fas fa-clipboard-check"></i> Bài Làm thêm</a>
+                            <a class="nav-link" href="bai5.html"><i class="fas fa-clipboard-check"></i> Bài Làm thêm</a>
                         </li>
-                    </ul>              
-                </div>         
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
-    <div class="container">
-        
-    </div> 
-    <footer id="dk-footer" class="dk-footer mt-5">
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <span>Copyright © 2020, Design by DungRoyal</span>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-5 m-auto">
+                <button type="button" data-toggle="modal" data-target="#nhapluong" class="col-5 btn btn-lg btn-success m-auto" type="button"><i class="fas fa-edit"></i> Nhập lương</button>
+                <button type="button" data-toggle="modal" data-target="#danhsach" class="col-5 btn btn-lg btn-success m-auto" type="button"><i class="fas fa-list"></i> Bảng lương</button>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="nhapluong" tabindex="-1" role="dialog" aria-labelledby="nhapluong" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title ml-3" id="exampleModalLabel"><i class="fas fa-edit"></i> Nhập lương tháng 12</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                        <div class="col-md-6">
-                            <div class="copyright-menu">
-                                <ul>
-                                    <li>
-                                        <a href="index.html">Trang chủ</a>
-                                    </li>
-                                </ul>
-                            </div>
+                    <div class="modal-body">
+                        <div class="card border-0 pl-3 pr-3">
+                            <form>
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="exampleInputEmail1">Mã nhân viên</label>
+                                        <input type="text" class="form-control" placeholder="Nhập mã nhân viên">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="exampleInputPassword1">Họ và tên</label>
+                                        <input type="text" class="form-control" placeholder="Nhập Họ và tên">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="exampleInputEmail1">Câu lạc bộ</label>
+                                        <select class="form-control">
+                                                <option>Quảng Nam</option>
+                                                <option>Đà Nẵng</option>
+                                                <option>TP Hồ Chí Minh</option>
+                                                <option>HAGL</option>
+                                                <option>Hà Nội</option>
+                                              </select>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="exampleInputPassword1">Lương</label>
+                                        <input type="text" class="form-control" placeholder="Nhập Lương">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="exampleInputEmail1">Tiền thưởng</label>
+                                        <input type="text" class="form-control" placeholder="Nhập tiền thưởng">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="exampleInputPassword1">Tiền phụ cấp</label>
+                                        <input type="text" class="form-control" placeholder="Nhập tiền phụ cấp">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        <label for="exampleInputEmail1">Ghi chú</label>
+                                        <textarea class="form-control" placeholder="Nhập ghi chú (Nếu có)" row="3"></textarea>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-window-close"></i> Hủy bỏ</button>
+                        <button type="button" class="btn btn-success"><i class="fas fa-save"></i> Lưu lại</button>
                     </div>
                 </div>
             </div>
-    </footer>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="danhsach" tabindex="-1" role="dialog" aria-labelledby="danhsach" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title ml-3" id="exampleModalLabel"><i class="fas fa-list"></i> Bảng lương</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body p-0">
+                            <table class="table table-bordered table-hover m-0 text-left table-striped">
+                                <thead class="text-center bg-warning text-dark">
+                                    <tr>
+                                        <th scope="col" class="align-middle" rowspan="2">Mã NV</th>
+                                        <th scope="col" class="align-middle" rowspan="2">Họ và tên</th>
+                                        <th scope="col" class="align-middle" colspan="3">Thu nhập</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">Lương</th>
+                                        <th scope="col">Thưởng</th>
+                                        <th scope="col">Phụ cấp</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">NV101</th>
+                                        <td>Nguyễn Công Phượng</td>
+                                        <td>450,000,000</td>
+                                        <td>50,000,000</td>
+                                        <td>10,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NV102</th>
+                                        <td>Hà Đức Chinh</td>
+                                        <td>250,000,000</td>
+                                        <td>50,000,000</td>
+                                        <td>10,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NV103</th>
+                                        <td>Luong Xuân Trường</td>
+                                        <td>300,000,000</td>
+                                        <td>50,000,000</td>
+                                        <td>10,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NV104</th>
+                                        <td>Vũ Văn Thanh</td>
+                                        <td>400,000,000</td>
+                                        <td>50,000,000</td>
+                                        <td>10,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NV105</th>
+                                        <td>Đoàn Văn Hậu</td>
+                                        <td>350,000,000</td>
+                                        <td>50,000,000</td>
+                                        <td>10,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NV106</th>
+                                        <td>Nguyễn Quang Hải</td>
+                                        <td>450,000,000</td>
+                                        <td>50,000,000</td>
+                                        <td>10,000,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fas fa-reply"></i> Trở lại</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+</body>
+
 </html>

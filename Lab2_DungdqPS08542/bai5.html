@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,40 +10,190 @@
     <title>Bài 5 | Bootstrap 4 | Đoàn Quốc Dũng</title>
     <link rel="shortcut icon" href="https://cdn.worldvectorlogo.com/logos/bootstrap-4.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
     <header class="row bg-success">
         <div class="title m-auto p-4 blockquote text-white font-weight-bold">Bài 5 - Làm thêm - Bootstrap 4</div>
     </header>
     <nav class="row bg-dark">
-        <div class="container bg-dark">      
-            <div class="navbar navbar-expand-lg navbar-dark bg-dark">   
+        <div class="container bg-dark">
+            <div class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item active">
-                        <a class="nav-link" href="index.html"><i class="fas fa-clipboard-check"></i> Bài 1 </a>
+                            <a class="nav-link" href="index.html"><i class="fas fa-clipboard-check"></i> Bài 1 </a>
                         </li>
                         <li class="nav-item active">
-                        <a class="nav-link" href="bai2.html"><i class="fas fa-clipboard-check"></i> Bài 2</a>
+                            <a class="nav-link" href="bai2.html"><i class="fas fa-clipboard-check"></i> Bài 2</a>
                         </li>
                         <li class="nav-item active">
-                        <a class="nav-link" href="bai3.html"><i class="fas fa-clipboard-check"></i> Bài 3</a>
+                            <a class="nav-link" href="bai3.html"><i class="fas fa-clipboard-check"></i> Bài 3</a>
                         </li>
                         <li class="nav-item active">
-                        <a class="nav-link" href="bai4.html"><i class="fas fa-clipboard-check"></i> Bài 4</a>
+                            <a class="nav-link" href="bai4.html"><i class="fas fa-clipboard-check"></i> Bài 4</a>
                         </li>
                         <li class="nav-item active">
-                        <a class="nav-link" href="bai5.html"><i class="fas fa-clipboard-check"></i> Bài Làm thêm</a>
+                            <a class="nav-link" href="bai5.html"><i class="fas fa-clipboard-check"></i> Bài Làm thêm</a>
                         </li>
-                    </ul>              
-                </div>         
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
-    <div class="container">
-           
-    </div> 
+    <div class="container mt-3">
+        <div class="col-10 m-auto">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-12 p-0">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7836.74272832959!2d106.62370052410932!3d10.859333269061157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175298945afff59%3A0xcf4afe79d65f5ddc!2zQ8O0bmcgdmnDqm4gcGjhuqduIG3hu4FtIFF1YW5nIFRydW5n!5e0!3m2!1svi!2s!4v1594395137099!5m2!1svi!2s"
+                            width="100%" height="330" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-6 p-0 border border-primary">
+                    <div class="col-12 p-0">
+                        <div class="title bg-info">
+                            <h3 class="font-weight-bold text-center text-uppercase pt-3 text-white">Form Liên hệ</h3>
+                            <p class="text-center text-white font-weight-light pb-2 font-italic">Kính mời nhập thông tin bên dưới</p>
+                        </div>
+                        <div class="form_group">
+                            <div class="form-group col-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i> </span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="họ và tên" placeholder="Nhập họ và tên">
+                                </div>
+                            </div>
+                            <div class="form-group col-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Email" placeholder="Nhập địa chỉ email">
+                                </div>
+                            </div>
+                            <div class="form-group col-12">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fab fa-facebook-messenger"></i></span>
+                                    </div>
+                                    <textarea type="text" class="form-control text-justify" aria-label="Lời nhắn" placeholder="Nhập lời nhắn"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2 px-3">
+                            <button class="btn btn-info m-auto col-12 font-weight-bold text-uppercase" type="submit">Gửi liên hệ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="col-10 m-auto">
+            <div class="card">
+                <div class="card-header text-left font-weight-bold text-uppercase">
+                    <i class="fas fa-plus-circle"></i> Thêm tin mới
+                </div>
+                <div class="card-body">
+                    <form id="addPost">
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <input type="text" class="form-control border-radius-0" placeholder="Nhập tiêu đề tin">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <textarea class="form-control border-radius-0" placeholder="Nhập tóm tắt tin" row="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <input type="text" class="form-control border-radius-0" placeholder="URL hình ảnh">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-4">
+                                <div class="col-3 custom-control custom-radio float-left">
+                                    <input type="radio" id="hien" name="status" class="custom-control-input border-radius-0">
+                                    <label class="custom-control-label" for="hien">Hiện</label>
+                                </div>
+                                <div class="col-6 custom-control custom-radio float-left">
+                                    <input type="radio" id="an" name="status" class="custom-control-input border-radius-0">
+                                    <label class="custom-control-label" for="an">Ẩn</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-4">
+                                <div class="col-5 custom-control custom-radio float-left">
+                                    <input type="radio" id="vn" name="language" class="custom-control-input border-radius-0">
+                                    <label class="custom-control-label" for="vn">Tiếng Việt</label>
+                                </div>
+                                <div class="col-6 custom-control custom-radio float-left">
+                                    <input type="radio" id="en" name="language" class="custom-control-input border-radius-0">
+                                    <label class="custom-control-label" for="en">English</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-4">
+                                <div class="col-5 custom-control custom-radio float-left">
+                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input border-radius-0">
+                                    <label class="custom-control-label" for="customRadio1">Nổi bật</label>
+                                </div>
+                                <div class="col-6 custom-control custom-radio float-left">
+                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input border-radius-0">
+                                    <label class="custom-control-label" for="customRadio2">Bình thường</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input type="date" class="form-control" aria-label="Ngày đưa tin" placeholder="Nhập ngày đưa tin">
+                                </div>
+                            </div>
+                            <div class="form-group col-6">
+                                <input type="text" class="form-control border-radius-0" data-role="tagsinput" placeholder="Nhập tags của tin" data-role="tagsinput" value="jQuery,Script,Net">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <select class="form-control border-radius-0">
+                                    <option>Chọn thể loại</option>
+                                    <option>Bóng đá</option>
+                                    <option>Thế giới</option>
+                                    <option>Trong nước</option>
+                                  </select>
+                            </div>
+                            <div class="form-group col-6">
+                                <select class="form-control border-radius-0">
+                                    <option>Chọn loại tin</option>
+                                    <option>Bóng đá</option>
+                                    <option>Thế giới</option>
+                                    <option>Trong nước</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <textarea class="form-control border-radius-0" placeholder="Nội dung của tin" row="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <button class="btn btn-success ml-3 font-weight-bold" type="submit"><i class="fas fa-save"></i> Lưu lại</button>
+                            <button class="btn btn-danger ml-3 font-weight-bold" type="reset"><i class="fas fa-redo"></i> Nhập lại</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer id="dk-footer" class="dk-footer mt-5">
         <div class="copyright">
@@ -63,9 +214,9 @@
                 </div>
             </div>
         </div>
-</footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+</body>
+
 </html>
