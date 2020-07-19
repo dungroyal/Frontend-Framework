@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bài 4 |Lab3 | DungdqPS08542</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <h2>SUMMER 2020 | WD14301</h2>
+        <p>Tìm kiếm thông tin sinh viên:</p>
+        <input class="form-control" id="myInput" type="text" placeholder="Tìm kiếm..">
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>Mã sinh viên</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <tr>
+                    <td>Đoàn Quốc Dũng</td>
+                    <td>PS08542</td>
+                    <td>DungdqPS08542@fpt.edu.vn</td>
+                </tr>
+                <tr>
+                    <td>Lê Trọng Nhân</td>
+                    <td>PS08542</td>
+                    <td>NhanltPS08542@fpt.edu.vn</td>
+                </tr>
+                <tr>
+                    <td>Trần Quang Chánh</td>
+                    <td>PS02312</td>
+                    <td>ChanhtqPS02312@fpt.edu.vn</td>
+                </tr>
+                <tr>
+                    <td>Nguyễn Quang Huy</td>
+                    <td>PS01010</td>
+                    <td>HuynqPS01010@fpt.edu.vn</td>
+                </tr>
+                <tr>
+                    <td>Lê Nhật Hào</td>
+                    <td>PS03242</td>
+                    <td>HaolnPS03242@fpt.edu.vn</td>
+                </tr>
+                <tr>
+                    <td>Nguyễn Quốc Thịnh</td>
+                    <td>PS09902</td>
+                    <td>ThinhnqPS09902@fpt.edu.vn</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
