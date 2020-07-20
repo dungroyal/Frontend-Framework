@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bài 3 | Lab4 | AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
+    <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+<!-- <style>
+    .box {
+        margin: 0px auto;
+    }
+</style> -->
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl" class="container mt-3">
+        <div class="col-10 m-auto ">
+            <div class="card ">
+                <div class="card-header text-left font-weight-bold text-uppercase ">
+                    <i class="fas fa-calculator"></i> Siêu máy tính
+                </div>
+                <div class="card-body ">
+                    <form>
+                        <div class="row ">
+                            <div class="form-group col-6 ">
+                                <label for="exampleInputEmail1">Chiều dài (Centiment)</label>
+                                <input type="number" ng-model="length" ng-change="tinhtoan()" class="form-control" placeholder="Nhập chiều dài">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="exampleInputPassword1">Chiều rộng (Centiment)</label>
+                                <input type="number" ng-model="width" ng-change="tinhtoan()" class="form-control" value="0" placeholder="Nhập chiều rộng">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="form-group col-12 ">
+                                <label for="exampleInputEmail1 ">Kết quả</label>
+                                <p>Chu vi hình chữ nhật: <strong> {{chuvi | number}} CM</strong></p>
+                                <p>Diện tích hình chữ nhật:<strong> {{dientich | number}} CM</strong></p>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <button class="btn btn-success ml-3 font-weight-bold " ng-click="tinhtoan()"><i class="fas fa-calculator"></i> Tính toán</button>
+                            <button class="btn btn-danger ml-3 font-weight-bold " ng-click="ramdom()"><i class="fas fa-random"></i> Lấy số</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-left ">Vui lòng nhập chiều dài và chiều rộng để máy tính có thể tính toán </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", function($scope) {
+        $scope.length = 0;
+        $scope.width = 0;
+        $scope.chuvi = 0;
+        $scope.dientich = 0;
+        $scope.tinhtoan = function() {
+            var w = parseInt($scope.width);
+            var l = parseInt($scope.length);
+            $scope.chuvi = (w + l) * 2;
+            $scope.dientich = w * l;
+        }
+        $scope.ramdom = function() {
+            var w = Math.round(Math.random() * 100);
+            var l = Math.round(Math.random() * 100);
+            $scope.width = w;
+            $scope.length = l;
+            $scope.chuvi = (w + l) * 2;
+            $scope.dientich = w * l;
+        }
+    });
+</script>
+<link rel="stylesheet " href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css " integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk " crossorigin="anonymous ">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "></script>
+
+</html>

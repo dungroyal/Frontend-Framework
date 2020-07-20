@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bài 2 | Lab4 | AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
+    <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <table class="table table-bordered w-75 mx-auto mt-5 table-hover table-striped">
+            <thead>
+                <tr class="table-info">
+                    <th scope="col" colspan="7" class="table-info text-center font-weight-bold p-3 h5">Danh sách sinh viên chưa thanh toán học phí học kì Summer 2020</th>
+                </tr>
+                <tr class="">
+                    <th scope="col"></th>
+                    <th scope="col">Tên đăng nhập</th>
+                    <th scope="col">Mật khẩu</th>
+                    <th scope="col">Họ và tên</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Giới tính</th>
+                    <th scope="col">Học phí</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sv in listSV">
+                    <th scope="row" class="text-center">{{$index + 1}}</th>
+                    <td>{{sv.username}}</td>
+                    <td>{{sv.password}}</td>
+                    <td>{{sv.fullname}}</td>
+                    <td>{{sv.email}}</td>
+                    <td>{{sv.gender ? 'Nam' : 'Nữ'}}</td>
+                    <td>{{sv.schoolfee | number}} đ</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div ng-controller="myctrl2" class="card text-center w-25 mx-auto mt-5 mb-5">
+        <div class="card-header h5 font-weight-bold bg-info text-white">
+            {{titleapp}}
+        </div>
+        <div class="card-body p-0 mb-n3 text-left">
+            <ul class="list-group-flush p-0">
+                <li class="list-group-item" ng-repeat="item in goodstudent">{{$index + 1}}. {{item}}</li>
+            </ul>
+        </div>
+        <div class="card-footer text-muted">
+            FPT Polytechnic Hồ Chí Minh
+        </div>
+    </div>
+</body>
+
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", myfunc);
+    app.controller("myctrl2", myfunc2);
+
+    function myfunc($scope) {
+        $scope.titleapp = "Thông tin sinh viên";
+        $scope.listSV = [{
+            username: "DungRoyal",
+            password: "IloveMr.Long",
+            fullname: "Đoàn Quốc Dũng",
+            email: "dungdqps08542@fpt.edu.vn",
+            gender: true,
+            birthday: "05/05/2000",
+            schoolfee: "6500000",
+            marks: "9.0"
+        }, {
+            username: "Nhanlt",
+            password: "Nhan_map",
+            fullname: "Lê Trọng Nhân",
+            email: "nhanltps09233@fpt.edu.vn",
+            gender: false,
+            birthday: "10/02/1997",
+            schoolfee: "6500000",
+            marks: "7.0"
+        }, {
+            username: "Haolt",
+            password: "Thichbucu",
+            fullname: "Lê Nhật Hào",
+            email: "haolnps02312@fpt.edu.vn",
+            gender: true,
+            birthday: "07/10/1999",
+            schoolfee: "6500000",
+            marks: "8.0"
+        }, {
+            username: "Nhanlt",
+            password: "Nhan_map",
+            fullname: "Lê Trọng Nhân",
+            email: "nhanltps09233@fpt.edu.vn",
+            gender: false,
+            birthday: "10/02/1997",
+            schoolfee: "6500000",
+            marks: "7.0"
+        }, {
+            username: "Haolt",
+            password: "Thichbucu",
+            fullname: "Lê Nhật Hào",
+            email: "haolnps02312@fpt.edu.vn",
+            gender: true,
+            birthday: "07/10/1999",
+            schoolfee: "6500000",
+            marks: "8.0"
+        }, {
+            username: "Nhanlt",
+            password: "Nhan_map",
+            fullname: "Lê Trọng Nhân",
+            email: "nhanltps09233@fpt.edu.vn",
+            gender: false,
+            birthday: "10/02/1997",
+            schoolfee: "6500000",
+            marks: "7.0"
+        }, {
+            username: "Haolt",
+            password: "Thichbucu",
+            fullname: "Lê Nhật Hào",
+            email: "haolnps02312@fpt.edu.vn",
+            gender: true,
+            birthday: "07/10/1999",
+            schoolfee: "6500000",
+            marks: "8.0"
+        }]
+    }
+
+    function myfunc2($scope) {
+        $scope.titleapp = "Sinh viên FPOLY";
+        $scope.goodstudent = ["Siêng năng", "Năng động", "Sáng tạo", "Ham học hỏi"];
+    }
+</script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</html>

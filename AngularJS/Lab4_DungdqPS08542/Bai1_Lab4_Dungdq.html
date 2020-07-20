@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bài 1 | Lab4 | AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
+    <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+<style>
+    .list_group {
+        margin: -15px 0px;
+    }
+    
+    #card_body {
+        padding: 1rem;
+    }
+</style>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl">
+        <div class="card text-left w-50 mx-auto mt-5">
+            <div class="card-header h5 font-weight-bold">
+                {{titleapp}}
+            </div>
+            <div class="card-body" id="card_body">
+                <div class="row">
+                    <ul class="col col-3 list-group-flush p-0 list_group">
+                        <li class="list-group-item">Tên đăng nhập</li>
+                        <li class="list-group-item">Họ và tên</li>
+                        <li class="list-group-item">Email</li>
+                        <li class="list-group-item">Giới tính</li>
+                        <li class="list-group-item">Ngày sinh</li>
+                        <li class="list-group-item">Học phí</li>
+                        <li class="list-group-item">Điểm</li>
+                    </ul>
+                    <ul class="col col-9 list-group-flush p-0 list_group">
+                        <li class="list-group-item">{{sv.username}}</li>
+                        <li class="list-group-item">{{sv.fullname}}</li>
+                        <li class="list-group-item">{{sv.email}}</li>
+                        <li class="list-group-item">{{sv.gender ? 'Nam' : 'Nữ'}}</li>
+                        <li class="list-group-item">{{sv.birthday}}</li>
+                        <li class="list-group-item">{{sv.schoolfee | number}} đ</li>
+                        <li class="list-group-item">{{sv.marks}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                FPT Polytechnic Hồ Chí Minh
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", myfunc);
+
+    function myfunc($scope) {
+        $scope.titleapp = "Thông tin sinh viên";
+        $scope.sv = {
+            username: "DungRoyal",
+            password: "I love Mr. Long",
+            fullname: "Đoàn Quốc Dũng",
+            email: "dungdqps08542@fpt.edu.vn",
+            gender: true,
+            birthday: "05/05/2000",
+            schoolfee: "6500000",
+            marks: "9.0"
+        }
+    }
+</script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</html>

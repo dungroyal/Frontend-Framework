@@ -1,0 +1,53 @@
+<head>
+    <title>Đăng nhập thành công</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <style>
+        header {
+            height: 120px;
+            position: relative;
+        }
+        
+        main {
+            min-height: 400px;
+        }
+        
+        footer {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body ng-app="myapp">
+    <div ng-controller="myctrl" class="container">
+        <header class="bg-info">
+            <div id="chao" class="text-white text-center h2 pt-4 font-weight-bold">Xin chào {{fullname}}!</div>
+            <p class="text-center font-italic text-white">Chúc mừng bạn đã đăng nhập thành công</p>
+        </header>
+        <main class="bg-secondary"></main>
+        <footer class="bg-dark text-center pt-3 text-white">
+            <p>Họ tên: <b>{{fullname}}</b></p>
+            <p>Email: <b>{{email}}</b></p>
+        </footer>
+    </div>
+</body>
+
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", myfunc);
+
+    function myfunc($scope) {
+        var hoten = sessionStorage.getItem("hoten");
+        var email = sessionStorage.getItem("email");
+        if (hoten != "") {
+            $scope.fullname = hoten;
+        }
+        if (email != "") {
+            $scope.email = email;
+        }
+
+    }
+</script>
