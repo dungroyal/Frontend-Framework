@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Bài 1 - AngularJS | Đoàn Quốc Dũng</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
+    <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+
+<body ng-app="myapp">
+    <header class="bg-success text-center">
+        <div class="title m-auto py-4 blockquote text-white font-weight-bold">Bài 1 - AngularJS</div>
+    </header>
+    <div ng-controller="addStdController" class="container mt-3">
+        <div class="col-10 m-auto">
+            <div class="card">
+                <div class="card-header text-left font-weight-bold text-uppercase">
+                    <i class="fas fa-edit"></i> Thêm sinh viên
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="exampleInputEmail1">Mã sinh viên</label>
+                                <input ng-model="$parent.listSV.masv" type="text" class="form-control" placeholder="Nhập mã sinh viên">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="exampleInputPassword1">Họ và tên</label>
+                                <input ng-model="$parent.listSV.fullname" type="text" class="form-control" placeholder="Nhập Họ và tên">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="exampleInputEmail1">Số điện thoại</label>
+                                <input ng-model="$parent.listSV.sdt" type="text" class="form-control" placeholder="Nhập số điện thoại">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="exampleInputPassword1">Địa chỉ</label>
+                                <input ng-model="$parent.listSV.dc" type="text" class="form-control" placeholder="Nhập địa chỉ">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-success ml-3 font-weight-bold" type="submit"><i class="fas fa-save"></i> Lưu lại</button>
+                            <button class="btn btn-danger ml-3 font-weight-bold" type="reset"><i class="fas fa-window-close"></i> Hủy bỏ</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-controller="tableStdController" class="container mt-3">
+        <div class="col-10 m-auto">
+            <div class="card">
+                <div class="card-header text-left font-weight-bold text-uppercase">
+                    <i class="fas fa-edit"></i> Danh sách sinh diên
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">STT</th>
+                                <th scope="col">Mã sinh viên</th>
+                                <th scope="col">Họ và tên</th>
+                                <th scope="col">Số điện thoại</th>
+                                <th scope="col">Địa chỉ</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="sv in listSV">
+                                <th scope="row" class="text-center">{{$index + 1}}</th>
+                                <td>{{sv.masv}}</td>
+                                <td>{{sv.fullname}}</td>
+                                <td>{{sv.sdt}}</td>
+                                <td>{{sv.dc}}</td>
+                                <td class="text-center"> <button ng-click="edit($index);" class="btn btn-primary" type="button">Sửa</button> <button class="btn btn-danger" type="button">Xóa</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-muted text-left">Danh sách sinh viên </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="dk-footer" class="dk-footer mt-5">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span>Copyright © 2020, Design by DungRoyal</span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="copyright-menu">
+                            <ul>
+                                <li>
+                                    <a href="index.html">Trang chủ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("addStdController", function($scope) {
+        $scope.login = function() {
+
+        }
+    });
+
+    app.controller("tableStdController", function($scope) {
+
+        $scope.$parent.listSV = [{
+            fullname: "Đoàn Quốc Dũng",
+            masv: "PS08542",
+            sdt: "0398022720",
+            dc: "Gò Vấp",
+        }, {
+            fullname: "Lê Trọng Nhân",
+            masv: "PS09232",
+            sdt: "0398022720",
+            dc: "Gò Vấp"
+        }, {
+            fullname: "Lê Nhật Hào",
+            masv: "s023122",
+            sdt: "0398022720",
+            dc: "Gò Vấp",
+        }, {
+            fullname: "Lê Trọng Nhân",
+            masv: "PS09232",
+            sdt: "0398022720",
+            dc: "Gò Vấp"
+        }, {
+            fullname: "Lê Nhật Hào",
+            masv: "PS02312",
+            sdt: "0398022720",
+            dc: "Gò Vấp"
+        }, {
+            fullname: "Lê Trọng Nhân",
+            masv: "PS09232",
+            sdt: "0398022720",
+            dc: "Gò Vấp"
+        }, {
+            fullname: "Lê Nhật Hào",
+            masv: "PS02322",
+            sdt: "0398022720",
+            dc: "Gò Vấp"
+        }]
+        $scope.edit = function(key) {
+            $scope.$parent.index = key;
+            $scope.$parent.listSV = angular.copy($scope.$parent.listSV[key]);
+        }
+    });
+</script>
+
+</html>
