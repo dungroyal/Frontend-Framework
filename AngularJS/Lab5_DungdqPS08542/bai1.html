@@ -16,39 +16,39 @@
 
 <body ng-app="myapp">
     <header class="bg-success text-center">
-        <div class="title m-auto py-4 blockquote text-white font-weight-bold">Bài 1 - AngularJS</div>
+        <div class="title m-auto py-3 blockquote text-white font-weight-bold">Quản lý sinh viên </div>
     </header>
     <div ng-controller="addStdController" class="container mt-3">
-        <div class="col-10 m-auto">
-            <div class="card">
+        <div class="col-10 m-auto" id="hhehehhehe" ng-show="$parent.collapsed" >
+            <div class="card border-radius-0">
                 <div class="card-header text-left font-weight-bold text-uppercase">
-                    <i class="fas fa-edit"></i> Thêm sinh viên
+                    <i class="fas fa-edit"></i> Cập Nhật thông tin sinh viên
                 </div>
                 <div class="card-body">
                     <form>
                         <div class="row">
                             <div class="form-group col-6">
                                 <label for="exampleInputEmail1">Mã sinh viên</label>
-                                <input ng-model="$parent.listSV.masv" type="text" class="form-control" placeholder="Nhập mã sinh viên">
+                                <input ng-model="$parent.getSV.masv" type="text" class="form-control" placeholder="Nhập mã sinh viên">
                             </div>
                             <div class="form-group col-6">
                                 <label for="exampleInputPassword1">Họ và tên</label>
-                                <input ng-model="$parent.listSV.fullname" type="text" class="form-control" placeholder="Nhập Họ và tên">
+                                <input ng-model="$parent.getSV.fullname" type="text" class="form-control" placeholder="Nhập Họ và tên">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-6">
                                 <label for="exampleInputEmail1">Số điện thoại</label>
-                                <input ng-model="$parent.listSV.sdt" type="text" class="form-control" placeholder="Nhập số điện thoại">
+                                <input ng-model="$parent.getSV.sdt" type="text" class="form-control" placeholder="Nhập số điện thoại">
                             </div>
                             <div class="form-group col-6">
                                 <label for="exampleInputPassword1">Địa chỉ</label>
-                                <input ng-model="$parent.listSV.dc" type="text" class="form-control" placeholder="Nhập địa chỉ">
+                                <input ng-model="$parent.getSV.dc" type="text" class="form-control" placeholder="Nhập địa chỉ">
                             </div>
                         </div>
                         <div class="row">
-                            <button class="btn btn-success ml-3 font-weight-bold" type="submit"><i class="fas fa-save"></i> Lưu lại</button>
-                            <button class="btn btn-danger ml-3 font-weight-bold" type="reset"><i class="fas fa-window-close"></i> Hủy bỏ</button>
+                            <button ng-click="save();" class="btn btn-success btn-sm ml-3 font-weight-bold"><i class="fas fa-save"></i> Lưu lại</button>
+                            <button ng-click="cancel();" class="btn btn-danger btn-sm ml-3 font-weight-bold"><i class="fas fa-window-close"></i> Hủy bỏ</button>
                         </div>
                     </form>
                 </div>
@@ -58,14 +58,14 @@
 
     <div ng-controller="tableStdController" class="container mt-3">
         <div class="col-10 m-auto">
-            <div class="card">
+            <div class="card border-radius-0">
                 <div class="card-header text-left font-weight-bold text-uppercase">
                     <i class="fas fa-edit"></i> Danh sách sinh diên
                 </div>
                 <div class="card-body p-0">
-                    <table class="table table-bordered">
+                    <table class="table table-hover table-striped text-center table-mr-0 vertical-align-center">
                         <thead>
-                            <tr class="text-center">
+                            <tr>
                                 <th scope="col">STT</th>
                                 <th scope="col">Mã sinh viên</th>
                                 <th scope="col">Họ và tên</th>
@@ -81,12 +81,11 @@
                                 <td>{{sv.fullname}}</td>
                                 <td>{{sv.sdt}}</td>
                                 <td>{{sv.dc}}</td>
-                                <td class="text-center"> <button ng-click="edit($index);" class="btn btn-primary" type="button">Sửa</button> <button class="btn btn-danger" type="button">Xóa</button></td>
+                                <td class="text-center"> <button ng-click="edit($index);"  class="btn btn-primary" type="button">Sửa</button></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer text-muted text-left">Danh sách sinh viên </div>
             </div>
         </div>
     </div>
@@ -115,13 +114,22 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
+
 <script>
     var app = angular.module("myapp", []);
     app.controller("addStdController", function($scope) {
-
+        $scope.save=function () {
+            $scope.$parent.listSV[$scope.$parent.index] = $scope.getSV;
+            $scope.$parent.collapsed=false;
+        }
+        $scope.cancel=function () {
+            $scope.$parent.getSV= angular.copy($scope.$parent.listSV[$scope.$parent.index]);
+            $scope.$parent.collapsed=false;
+        }
     });
 
     app.controller("tableStdController", function($scope) {
+
         $scope.$parent.listSV = [{
             fullname: "Đoàn Quốc Dũng",
             masv: "PS08542",
@@ -130,27 +138,18 @@
         }, {
             fullname: "Lê Trọng Nhân",
             masv: "PS09232",
-            sdt: "0398022720",
-            dc: "Gò Vấp"
+            sdt: "0398451254",
+            dc: "Thủ Đức"
         }, {
             fullname: "Lê Nhật Hào",
-            masv: "PS02322",
-            sdt: "0398022720",
-            dc: "Gò Vấp",
-        }, {
-            fullname: "Lê Trọng Nhân",
-            masv: "PS09232",
-            sdt: "0398022720",
-            dc: "Gò Vấp"
-        }, {
-            fullname: "Lê Nhật Hào",
-            masv: "PS02312",
-            sdt: "0398022720",
-            dc: "Gò Vấp"
+            masv: "PS023122",
+            sdt: "0398032518",
+            dc: "Bình Thạnh",
         }]
         $scope.edit = function(key) {
+            $scope.$parent.collapsed=true;
             $scope.$parent.index = key;
-            $scope.$parent.listSV = angular.copy($scope.$parent.listSV[key]);
+            $scope.$parent.getSV = angular.copy($scope.$parent.listSV[key]);
         }
     });
 </script>
