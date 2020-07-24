@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap');
+body{
+    font-family:'Quicksand';
+    font-weight: 500;
+}
 .nav-link {
     font-weight: 600;
     margin-right: 20px;
@@ -41,4 +46,20 @@
 .border-radius-0 {
     border-radius: 1px;
     margin-bottom: 6px;
+}
+
+.card-body{
+    min-height: 100px;
+}
+
+.table-mr-0{
+    margin-bottom: 0px;
+}
+
+.vertical-align-center td,th{
+    vertical-align: middle !important;
+}
+
+.btn-group-2 button{
+    width: 100px;
 }
