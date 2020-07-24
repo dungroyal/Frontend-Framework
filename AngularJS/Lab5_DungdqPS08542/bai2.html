@@ -16,42 +16,62 @@
 
 <body ng-app="myapp" ng-controller="StdController">
     <header class="bg-success text-center">
-        <div class="title m-auto py-3 blockquote text-white font-weight-bold">Quản lý sinh viên </div>
+        <div class="title m-auto py-3 blockquote text-white font-weight-bold"><i class="fas fa-user-graduate mr-2"></i> Quản lý sinh viên FPT Polytechnic</div>
     </header>
-    <div  class="container mt-3">
-        <div class="col-10 m-auto" ng-show="collapsed" >
+    <div class="container mt-3">
+        <div class="col-10 m-auto">
             <div class="card border-radius-0">
                 <div class="card-header text-left font-weight-bold text-uppercase">
-                    <i class="fas fa-edit"></i> Cập Nhật thông tin sinh viên
+                    <i class="fas fa-edit mr-1"></i> Cập Nhật thông tin sinh viên
                 </div>
                 <div class="card-body">
                     <form>
                         <div class="row">
                             <div class="form-group col-6">
                                 <label for="exampleInputEmail1">Mã sinh viên</label>
-                                <input ng-model="getSV.masv" type="text" class="form-control" placeholder="Nhập mã sinh viên">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-qrcode"></i></span>
+                                    </div>
+                                    <input ng-model="getSV.masv" type="text" class="form-control" placeholder="Nhập mã sinh viên">
+                                </div>
                             </div>
                             <div class="form-group col-6">
                                 <label for="exampleInputPassword1">Họ và tên</label>
-                                <input ng-model="getSV.fullname" type="text" class="form-control" placeholder="Nhập Họ và tên">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user-graduate"></i></span>
+                                    </div>
+                                    <input ng-model="getSV.fullname" type="text" class="form-control" placeholder="Nhập Họ và tên">
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-6">
                                 <label for="exampleInputEmail1">Số điện thoại</label>
-                                <input ng-model="getSV.sdt" type="text" class="form-control" placeholder="Nhập số điện thoại">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                    </div>
+                                    <input ng-model="getSV.sdt" type="text" class="form-control" placeholder="Nhập số điện thoại">
+                                </div>
                             </div>
                             <div class="form-group col-6">
-                                <label for="exampleInputPassword1">Địa chỉ</label>
-                                <input ng-model="getSV.dc" type="text" class="form-control" placeholder="Nhập địa chỉ">
+                                <label for="exampleInputPassword1">Điểm tổng kết</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-sort-numeric-down"></i></span>
+                                    </div>
+                                    <input ng-model="getSV.tk" type="number" class="form-control" placeholder="Nhập điểm trung bình (0 đến 10 điểm)" min="0" max="10">
+                                </div>
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center mt-2 btn-group-2">
-                            <button ng-click="save();" class="btn btn-success btn-sm ml-3 font-weight-bold"><i class="fas fa-save"></i> Thêm</button>
-                            <button ng-click="cancel();" class="btn btn-warning btn-sm ml-3 font-weight-bold"><i class="fas fa-window-close"></i> Cập nhật</button>
-                            <button ng-click="cancel();" class="btn btn-danger btn-sm ml-3 font-weight-bold"><i class="fas fa-window-close"></i> Xoá</button>
-                            <button ng-click="cancel();" class="btn btn-dark btn-sm ml-3 font-weight-bold"><i class="fas fa-window-close"></i> Bỏ qua</button>
-                            <button type="reset" class="btn btn-info btn-sm ml-3 font-weight-bold"><i class="fas fa-window-close"></i> Làm mới</button>
+                            <button ng-click="insert();" ng-show="index == -1" class="btn btn-success btn-sm ml-3 font-weight-bold"><i class="fas fa-save mr-1"></i> Thêm</button>
+                            <button ng-click="update();" ng-show="index != -1" class="btn btn-warning btn-sm ml-3 font-weight-bold"><i class="fas fa-pen-square mr-1"></i> Cập nhật</button>
+                            <button ng-click="delete();" ng-show="index != -1" class="btn btn-danger btn-sm ml-3 font-weight-bold"><i class="fas fa-trash mr-1"></i> Xoá</button>
+                            <button ng-click="cancel();" ng-show="index != -1" class="btn btn-dark btn-sm ml-3 font-weight-bold"><i class="far fa-sad-tear mr-1"></i> Hối hận</button>
+                            <button ng-click="clear();index == -1" class="btn btn-info btn-sm ml-3 font-weight-bold"><i class="fas fa-sync-alt mr-1"></i> Làm mới</button>
                         </div>
                     </form>
                 </div>
@@ -63,7 +83,7 @@
         <div class="col-10 m-auto">
             <div class="card border-radius-0">
                 <div class="card-header text-left font-weight-bold text-uppercase">
-                    <i class="fas fa-edit"></i> Danh sách sinh diên
+                    <i class="fas fa-list-alt mr-1"></i> Danh sách sinh diên
                 </div>
                 <div class="card-body p-0">
                     <table class="table table-hover table-striped text-center table-mr-0 vertical-align-center">
@@ -73,18 +93,19 @@
                                 <th scope="col">Mã sinh viên</th>
                                 <th scope="col">Họ và tên</th>
                                 <th scope="col">Số điện thoại</th>
-                                <th scope="col">Địa chỉ</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Xếp loại</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="sv in listSV">
+                            <tr ng-repeat="sv in listSV" ng-click="edit($index);">
                                 <th scope="row" class="text-center">{{$index + 1}}</th>
                                 <td>{{sv.masv}}</td>
                                 <td>{{sv.fullname}}</td>
                                 <td>{{sv.sdt}}</td>
-                                <td>{{sv.dc}}</td>
-                                <td class="text-center"> <button ng-click="edit($index);"  class="btn btn-primary" type="button">Sửa</button></td>
+                                <td ng-if="sv.tk <5">Yếu kém</td>
+                                <td ng-if="sv.tk>=5 && sv.tk < 8">Trung bình/Khá</td>
+                                <td ng-if="sv.tk>=8"><strong>Giỏi/xuất sắc</strong></td>
+                                <!-- <td class="text-center"> <button ng-click="edit($index);" class="btn btn-primary" type="button">Sửa</button></td> -->
                             </tr>
                         </tbody>
                     </table>
@@ -100,15 +121,6 @@
                     <div class="col-md-6">
                         <span>Copyright © 2020, Design by DungRoyal</span>
                     </div>
-                    <div class="col-md-6">
-                        <div class="copyright-menu">
-                            <ul>
-                                <li>
-                                    <a href="index.html">Trang chủ</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -121,35 +133,46 @@
 <script>
     var app = angular.module("myapp", []);
     app.controller("StdController", function($scope) {
-        $scope.save=function () {
-            $scope.listSV[$scope.index] = $scope.getSV;
-            $scope.collapsed=false;
+        $scope.edit = function(key) {
+            $scope.index = key;
+            $scope.getSV = angular.copy($scope.listSV[key]);
         }
-        $scope.cancel=function () {
-            $scope.getSV= angular.copy($scope.listSV[$scope.index]);
-            $scope.collapsed=false;
+        $scope.update = function() {
+            $scope.listSV[$scope.index] = angular.copy($scope.getSV);
         }
+        $scope.clear = function() {
+            $scope.getSV = {};
+            $scope.index = -1;
+        }
+        $scope.insert = function() {
+            $scope.listSV.push(angular.copy($scope.getSV));
+            $scope.clear();
+        }
+        $scope.cancel = function() {
+            if ($scope.index == -1) $scope.clear;
+            else $scope.edit($scope.index);
+        }
+        $scope.delete = function() {
+            $scope.listSV.splice($scope.index, 1);
+            $scope.clear();
+        }
+
         $scope.listSV = [{
             fullname: "Đoàn Quốc Dũng",
             masv: "PS08542",
             sdt: "0398022720",
-            dc: "Gò Vấp",
+            tk: "8"
         }, {
             fullname: "Lê Trọng Nhân",
             masv: "PS09232",
             sdt: "0398451254",
-            dc: "Thủ Đức"
+            tk: "4"
         }, {
             fullname: "Lê Nhật Hào",
             masv: "PS023122",
             sdt: "0398032518",
-            dc: "Bình Thạnh",
+            tk: "7"
         }]
-        $scope.edit = function(key) {
-            $scope.collapsed=true;
-            $scope.index = key;
-            $scope.getSV = angular.copy($scope.listSV[key]);
-        }
     });
 </script>
 

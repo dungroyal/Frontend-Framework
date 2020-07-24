@@ -19,7 +19,7 @@
         <div class="title m-auto py-3 blockquote text-white font-weight-bold">Quản lý sinh viên </div>
     </header>
     <div ng-controller="addStdController" class="container mt-3">
-        <div class="col-10 m-auto" id="hhehehhehe" ng-show="$parent.collapsed" >
+        <div class="col-10 m-auto" id="hhehehhehe" ng-show="$parent.collapsed">
             <div class="card border-radius-0">
                 <div class="card-header text-left font-weight-bold text-uppercase">
                     <i class="fas fa-edit"></i> Cập Nhật thông tin sinh viên
@@ -81,7 +81,7 @@
                                 <td>{{sv.fullname}}</td>
                                 <td>{{sv.sdt}}</td>
                                 <td>{{sv.dc}}</td>
-                                <td class="text-center"> <button ng-click="edit($index);"  class="btn btn-primary" type="button">Sửa</button></td>
+                                <td class="text-center"> <button ng-click="edit($index);" class="btn btn-primary" type="button">Sửa</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -118,13 +118,13 @@
 <script>
     var app = angular.module("myapp", []);
     app.controller("addStdController", function($scope) {
-        $scope.save=function () {
+        $scope.save = function() {
             $scope.$parent.listSV[$scope.$parent.index] = $scope.getSV;
-            $scope.$parent.collapsed=false;
+            $scope.$parent.collapsed = false;
         }
-        $scope.cancel=function () {
-            $scope.$parent.getSV= angular.copy($scope.$parent.listSV[$scope.$parent.index]);
-            $scope.$parent.collapsed=false;
+        $scope.cancel = function() {
+            $scope.$parent.getSV = angular.copy($scope.$parent.listSV[$scope.$parent.index]);
+            $scope.$parent.collapsed = false;
         }
     });
 
@@ -145,9 +145,29 @@
             masv: "PS023122",
             sdt: "0398032518",
             dc: "Bình Thạnh",
+        }, {
+            fullname: "Lê Trọng Nhân",
+            masv: "PS09232",
+            sdt: "0398451254",
+            dc: "Thủ Đức"
+        }, {
+            fullname: "Lê Nhật Hào",
+            masv: "PS023122",
+            sdt: "0398032518",
+            dc: "Bình Thạnh",
+        }, {
+            fullname: "Lê Trọng Nhân",
+            masv: "PS09232",
+            sdt: "0398451254",
+            dc: "Thủ Đức"
+        }, {
+            fullname: "Lê Nhật Hào",
+            masv: "PS023122",
+            sdt: "0398032518",
+            dc: "Bình Thạnh",
         }]
         $scope.edit = function(key) {
-            $scope.$parent.collapsed=true;
+            $scope.$parent.collapsed = true;
             $scope.$parent.index = key;
             $scope.$parent.getSV = angular.copy($scope.$parent.listSV[key]);
         }

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Bài 3 | AngularJS | DungdqPS08542</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
+    <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="css/style_bai3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+
+<body ng-app="myapp" ng-controller="myController">
+    <header class="row bg-primary">
+        <div class="container">
+            <div class="row ">
+                <div class="col-6 header_title position-relative">
+                    <div class="header_content">
+                        <h1 class="text-left">Royal Shoping Mall</h1>
+                        <h2 class=" badge badge-primary">The center poit of the professional programing</h2>
+                    </div>
+                </div>
+                <div class="col-6 position-relative">
+                    <img class="header_img" src="images/header-object.png" alt="Header">
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="row bg-dark">
+        <div class="container bg-dark">
+            <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/"><i class="fas fa-home"></i> Trang chủ <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-address-card"></i> Liên hệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-comment-medical"></i> Góp ý</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-question-circle"></i> Hỏi đáp</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle"></i> Tài khoản
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Đăng nhập</a>
+                                <a class="dropdown-item" href="#">Đăng ký</a>
+                                <a class="dropdown-item" href="#">Quên mật khẩu</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row ">
+            <article class="row col-9 mt-3">
+                <div class="col-4" ng-repeat="item in listProducts">
+                    <figure class="card card-product">
+                        <div class="img-wrap p-3"><img src="images/{{item.image}}"> </div>
+                        <figcaption class="info-wrap">
+                            <h4 class="title text-center text-dark">{{item.name}}</h4>
+                        </figcaption>
+                        <div class="bottom-wrap">
+                            <a href="" class="btn btn-sm btn-primary float-right">Mua ngay</a>
+                            <div class="price-wrap h5">
+                                <span class="price-new text-dark">{{item.price | number}} VNĐ</span>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+            </article>
+            <aside class="col-3 mt-3">
+                <div class="card mt-0 ml-n2 mr-n2">
+                    <div class="card-header text-white bg-dark">GIỎ HÀNG</div>
+                    <div class="card-body row">
+                        <img class="col-sm-5" src="images/shoppingcart.gif" alt="">
+                        <ul class="col-sm-7 list-group">
+                            <li class="list-group-item p-1 pl-3  text-dark">100 Items</li>
+                            <li class="list-group-item p-1 pl-3  text-dark">999 $</li>
+                            <li class="list-group-item p-1 pl-3"><a href="" style="text-decoration: none;">Chi tiết</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mt-3 ml-n2 mr-n2">
+                    <div class="card-header text-white bg-dark">TÌM KIẾM</div>
+                    <div class="card-body">
+                        <form class="form-inline">
+                            <input class="form-control col-9 mr-2" type="search" placeholder="Search">
+                            <button class="form-control col-2 btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card mt-3 ml-n2 mr-n2 catalog">
+                    <div class="card-header text-white bg-dark">LOẠI HÀNG</div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#" class="text-dark"> Điện thoại di động</a></li>
+                        <li class="list-group-item"><a href="#" class="text-dark">Laptop</a> </li>
+                        <li class="list-group-item"><a href="#" class="text-dark"> Máy Tính Bàn</a></li>
+                        <li class="list-group-item"><a href="#" class="text-dark"> Tủ Lạnh</a></li>
+                        <li class="list-group-item"><a href="#" class="text-dark"> Quạt Máy</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer id="dk-footer" class="dk-footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-4">
+                    <div class="footer-awarad">
+                        <img src="images/icon/best.png" alt="">
+                        <p>ROYAL SHOPING MALL</p>
+                    </div>
+                </div>
+                <!-- End Col -->
+                <div class="col-md-12 col-lg-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-us">
+                                <div class="contact-icon">
+                                    <i class="fa fa-map-o" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- End Contact Us -->
+                        </div>
+                        <!-- End Col -->
+                        <div class="col-md-6">
+                            <div class="contact-us contact-us-last">
+                                <div class="contact-icon">
+                                    <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- End Contact Us -->
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="footer-widget footer-left-widget">
+                                <div class="section-heading">
+                                    <h3>Liên kết</h3>
+                                    <span class="animate-border border-black"></span>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="#">About us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Projects</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="#">Contact us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Testimonials</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <div class="footer-widget">
+                                <div class="section-heading">
+                                    <h3>Đăng ký</h3>
+                                    <span class="animate-border border-black"></span>
+                                </div>
+                                Reference site about Lorem Ipsum, giving information on its origins, as well.</p>
+                                <form action="#">
+                                    <div class="form-row">
+                                        <div class="col dk-footer-form">
+                                            <input type="email" class="form-control" placeholder="Email Address">
+                                            <button type="submit">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span>Copyright © 2020, All Right Reserved DungRoyal</span>
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-md-6">
+                        <div class="copyright-menu">
+                            <ul>
+                                <li>
+                                    <a href="#">Terms</a>
+                                </li>
+                                <li>
+                                    <a href="#">Privacy Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                </div>
+                <!-- End Row -->
+            </div>
+            <!-- End Copyright Container -->
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="js/products.js"></script>
+</body>
+
+
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("myController", function($scope) {
+        $scope.listProducts = products;
+    });
+</script>
+
+
+</html>
