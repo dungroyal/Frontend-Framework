@@ -73,8 +73,8 @@
                 </div>
                 <div class="card-body p-0">
                     <div class="list-group text-left">
-                        <div class="list-group-item" ng-repeat="new in news | limitTo:3:0">
-                            <h5>{{new.TieuDe}} <span class="font-italic font-weight-normal">(Xem: {{new.Xem}})</span> <span class="font-weight-normal">Ngày đăng: {{new.Ngay}}</span> </h5>
+                        <div class="list-group-item" ng-repeat="new in news| orderBy:'-Xem' | limitTo:4:0" id="list_news">
+                            <h5>{{new.TieuDe}} <span id="views" class="font-italic font-weight-normal">(Xem: {{new.Xem}})</span> <span id="day" class="font-weight-normal">Ngày đăng: {{new.Ngay}}</span> </h5>
                             <div class="desc">
                                 {{new.TomTat}}
                             </div>
@@ -89,14 +89,14 @@
 
 
             <aside class="col-3 mt-3">
-                <div class="card mt-3 ml-n2 mr-n2 catalog">
-                    <div class="card-header text-white bg-dark">LOẠI HÀNG</div>
+                <div class="card mt-0 ml-n2 mr-n2 catalog">
+                    <div class="card-header text-white bg-dark">LOẠI TIN</div>
                     <ul class="list-group">
                         <li class="list-group-item" ng-repeat="loaitin in listloaitin | limitTo:3:0"><a href="#" class="text-dark"> {{loaitin.Ten}}</a></li>
                     </ul>
                 </div>
                 <div class="card mt-3 ml-n2 mr-n2 catalog">
-                    <div class="card-header text-white bg-dark">Thể loại</div>
+                    <div class="card-header text-white bg-dark">THỂ LOẠI</div>
                     <ul class="list-group">
                         <li class="list-group-item" ng-repeat="theloai in listtheloai | limitTo:3:0"><a href="#" class="text-dark"> {{theloai.TenTL}}</a></li>
                     </ul>
