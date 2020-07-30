@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Profile | Royal LMS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="icon" href="images/favicon.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+        <div class="container">
+            <div class="logo_main mr-2">
+                <a href="index.html">
+                    <img src="images/favicon.png" alt="">
+                </a>
+                <!-- <p class="float-right text-white font-weight-bold">Thi online</p> -->
+            </div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
+                    <a href="about.html" class="nav-item nav-link">Giới thiệu</a>
+                    <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                    <a href="feedback.html" class="nav-item nav-link">Góp ý</a>
+                    <a href="faq.html" class="nav-item nav-link">Hỏi đáp</a>
+                </div>
+                <div class="navbar-nav ml-auto dropdown open">
+                    <img src="images/avatar.jpg" class="btn dropdown-toggle rounded-circle" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </img>
+                    <div class="dropdown-menu ">
+                        <h6 class="dropdown-header font-weight-bold">Đoàn Quốc Dũng</h6>
+                        <a class="dropdown-item" href="profile.html">Quản lý tài khoản</a>
+                        <a class="dropdown-item" href="changepassword.html">Đổi mật khẩu</a>
+                        <a class="dropdown-item" href="#!">Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="images/avatar.jpg" alt="" />
+                            <div class="file btn btn-lg btn-primary">
+                                Đổi ảnh đại diện
+                                <input type="file" name="file" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                            <h4 class=" font-weight-bold">
+                                Đoàn Quốc Dũng
+                            </h4>
+                            <h6>
+                                Web Developer
+                            </h6>
+                            <p class="proile-rating">RANKINGS : <span>6/10</span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thông tin các nhân</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Cập nhật" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>Liên kết</p>
+                            <a href="">Facebook</a><br/>
+                            <a href="">Github</a><br/>
+                            <a href="">Gmail</a>
+                            <p>Kỹ năng</p>
+                            <a href="">Web Designer</a><br/>
+                            <a href="">Web Developer</a><br/>
+                            <a href="">WordPress</a><br/>
+                            <a href="">PHP, .Net</a><br/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>User Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>PS08542</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Họ và tên</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Đoàn Quốc Dũng</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>doanquocdung55@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Số điện thoại</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>0398 022 720</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Chuyên ngành</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Web Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Experience</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hourly Rate</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>10$/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total Projects</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>230</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>English Level</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Availability</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>6 months</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Dịch vụ</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Web Manager</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Về chúng tôi</h3>
+                        <ul>
+                            <li><a href="#">Royal Team</a></li>
+                            <li><a href="#">Gò Vấp, Hồ Chí Minh</a></li>
+                            <li><a href="#">0398 022 720</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Royal LMS</h3>
+                        <p>Công cụ làm trắc nghiệm online về chủ đề lập trình, giúp cho lập trình viên có thể học hỏi được kiến thức mới.</p>
+                    </div>
+                    <div class="col item social">
+                        <a href="https://www.facebook.com/Quocdungroyal/" title="Đoàn Quốc Dũng"><i class="fab fa-facebook-f"></i></a>
+                        <a href="javascript:void(0);" title="doanquocdung55@gmail.com"><i class="fab fa-google"></i></a>
+                        <a href="https://github.com/dungroyal"><i class="fab fa-github"></i></a>
+                        <a href="javascript:void(0);" title="0398 022 720"><i class="fas fa-mobile-alt"></i></a>
+                    </div>
+                </div>
+                <p class="copyright">DungRoyal © 2020</p>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+
+</html>
