@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Bài 3 | Lab7 | AngularJS | DungdqPS08542</title>
+    <title>Bài 3b | Lab7 | AngularJS | DungdqPS08542</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
     <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="css/style_bai3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 </head>
 
-<body ng-app="myapp" ng-controller="myController">
+<body ng-app="myapp">
     <header class="row bg-primary">
         <div class="container">
             <div class="row ">
@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/"><i class="fas fa-home"></i> Trang chủ <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#!ps08542"><i class="fas fa-home"></i> Trang chủ <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> Giới thiệu</a>
@@ -68,37 +68,24 @@
     <div class="container">
         <div class="row">
             <div class="card text-center text-dark col-9 p-0 mt-3">
-                <div class="card-header text-left h5 font-weight-bold">
-                    Tin thể thao
-                </div>
-                <div class="card-body p-0">
-                    <div class="list-group text-left">
-                        <div class="list-group-item" ng-repeat="new in news| orderBy:'-Xem' | limitTo:4:0" id="list_news">
-                            <h5>{{new.TieuDe}} <span id="views" class="font-italic font-weight-normal">(Xem: {{new.Xem}})</span> <span id="day" class="font-weight-normal">Ngày đăng: {{new.Ngay}}</span> </h5>
-                            <div class="desc">
-                                {{new.TomTat}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer text-muted">
-                    <button class="btn btn-primary" type="button">Xem tiếp</button>
-                </div>
+                <div ng-view class="p-5"></div>
             </div>
-
-
-
             <aside class="col-3 mt-3">
                 <div class="card mt-0 ml-n2 mr-n2 catalog">
                     <div class="card-header text-white bg-dark">LOẠI TIN</div>
                     <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="loaitin in listloaitin | limitTo:3:0"><a href="#" class="text-dark"> {{loaitin.Ten}}</a></li>
-                    </ul>
-                </div>
-                <div class="card mt-3 ml-n2 mr-n2 catalog">
-                    <div class="card-header text-white bg-dark">THỂ LOẠI</div>
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="theloai in listtheloai | limitTo:3:0"><a href="#" class="text-dark"> {{theloai.TenTL}}</a></li>
+                        <li class="list-group-item">
+                            <a href="#!thethao" class="text-dark ">Thể thao</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#!giaoduc" class="text-dark">Giáo dục</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#!xahoi" class="text-dark">Xã hội</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#!thohay" class="text-dark">Thơi hay</a>
+                        </li>
                     </ul>
                 </div>
             </aside>
@@ -110,7 +97,6 @@
             <div class="row">
                 <div class="col-md-12 col-lg-4">
                     <div class="footer-awarad">
-                        <img src="images/icon/best.png" alt="">
                         <p>ROYAL SHOPING MALL</p>
                     </div>
                 </div>
@@ -207,18 +193,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="js/theloai.js"></script>
-    <script src="js/songdep.js"></script>
-    <script src="js/loaitin.js"></script>
+    <script src="js/angular-route.js"></script>
 </body>
 
 
 <script>
-    var app = angular.module("myapp", []);
-    app.controller("myController", function($scope) {
-        $scope.listtheloai = theloai;
-        $scope.news = songdep;
-        $scope.listloaitin = loaitin;
+    var app = angular.module('myapp', ['ngRoute']);
+    app.config(function($routeProvider) {
+        $routeProvider
+            .when("/thethao", {
+                templateUrl: "page/thethao.html",controller:"thethao"
+            })
+            .when("/giaoduc", {
+                templateUrl: "page/giaoduc.html",controller:"giaoduc"
+            })
+            .when("/xahoi", {
+                templateUrl: "page/xahoi.html",controller:"xahoi"
+            })
+            .when("/thohay", {
+                templateUrl: "page/thohay.html",controller:"thohay"
+            })
+            .otherwise({
+                template: "<h1>Trang chủ</h1>"
+            })
+    });
+    app.controller("thethao", function($scope, $http ,$rootScope) {
+        $scope.news = [];
+        $http.get("js/Thể thao.js").then(
+            function(r) {
+                $scope.news = r.data;
+            },
+            function(d) {
+                alert('lỗi :' + d.statusText);
+            }
+        );
     });
 </script>
 

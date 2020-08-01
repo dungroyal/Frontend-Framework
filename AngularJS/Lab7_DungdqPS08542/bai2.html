@@ -33,7 +33,7 @@
                         <thead>
                             <tr class="text-uppercase font-weight-bold bg-dark text-white" id="header_table">
                                 <!-- <th scope="col">STT</th> -->
-                                <th scope="col" ng-click="sortColumn( 'name')" class="text-left">Sản phẩm</th>
+                                <th scope="col" width="320px" ng-click="sortColumn( 'name')" class="text-left">Sản phẩm</th>
                                 <th scope="col" ng-click="sortColumn( 'price')">Đơn giá</th>
                                 <th scope="col" ng-click="sortColumn( 'discount')">Giảm giá</th>
                                 <th scope="col" ng-click="sortColumn( 'date')">Ngày</th>
@@ -51,7 +51,7 @@
                             </tr>
                         </tbody>
                         <tfoot>
-                            <tr class="bg-dark text-white">
+                            <tr class="bg-dark text-white" id="header_table">
                                 <th scope="col" class="" colspan="5">
                                     <button class="btn btn-primary btn-sm" type="button" ng-click="first()"><i class="fas fa-angle-double-right tran180"></i> Trang đầu</button>
                                     <button class="btn btn-info btn-sm" type="button" ng-click="prev()"><i class="fas fa-angle-right tran180"></i> Trang trước</button>
