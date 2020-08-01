@@ -1,0 +1,29 @@
+<h5 class="bg-info text-white py-2 pl-2 font-weight-bold text-uppercase text-center"> {{title}}</h5>
+
+<article class="row col-12 mt-3 m-0 p-0">
+    <div class="col-4" ng-repeat="pro in products|limitTo:pageSize:start">
+        <figure class="card card-product">
+            <div class="img-wrap p-3"><img src="images/{{pro.img}}">
+            </div>
+            <figcaption class="info-wrap">
+                <h4 class="title text-center text-dark">{{pro.name}}</h4>
+            </figcaption>
+            <div class="bottom-wrap">
+                <a href="" class="btn btn-sm btn-primary float-right">Mua ngay</a>
+                <div class="price-wrap h5">
+                    <span class="price-new text-dark">{{pro.price | number}} VNĐ</span>
+                </div>
+            </div>
+        </figure>
+    </div>
+</article>
+<div class="card-footer text-muted text-center" id="header_table">
+    <tr class="bg-dark text-white">
+        <th scope="col" class="" colspan="5">
+            <button class="btn btn-primary btn-sm" type="button" ng-click="first()"><i class="fas fa-angle-double-right tran180"></i> Trang đầu</button>
+            <button class="btn btn-info btn-sm" type="button" ng-click="prev()"><i class="fas fa-angle-right tran180"></i> Trang trước</button>
+            <button class="btn btn-info btn-sm" type="button" ng-click="next()">Trang kế <i class="fas fa-angle-right"></i></button>
+            <button class="btn btn-primary btn-sm" type="button" ng-click="last()">Trang cuối <i class="fas fa-angle-double-right"></i></button>
+        </th>
+    </tr>
+</div>

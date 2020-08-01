@@ -1,0 +1,23 @@
+[
+    { "name": "Sam Samsung Galaxy Tab A", "img": "1.png", "price": "15000000" },
+    { "name": "Máy tính bảng Mobell", "img": "2.png", "price": "13000000" },
+    { "name": "Điện thoại Realme 5", "img": "5.png", "price": "8000000" },
+    { "name": "Điện thoại Iphone 8", "img": "3.png", "price": "20000000" },
+    { "name": "Điện thoại BlackBarry", "img": "4.png", "price": "9000000" },
+    { "name": "Điện thoại Realme 5", "img": "5.png", "price": "8000000" },
+    { "name": "Điện thoại Nokia 3.2", "img": "6.png", "price": "5000000" },
+    { "name": "Điện thoại Iphone 8", "img": "3.png", "price": "20000000" },
+    { "name": "Điện thoại BlackBarry", "img": "4.png", "price": "9000000" },
+    { "name": "Điện thoại Realme 5", "img": "5.png", "price": "8000000" },
+    { "name": "Điện thoại Nokia 3.2", "img": "6.png", "price": "5000000" },
+    { "name": "Điện thoại Realme 5", "img": "5.png", "price": "8000000" },
+    { "name": "Điện thoại Nokia 3.2", "img": "6.png", "price": "5000000" },
+    { "name": "Điện thoại Iphone 8", "img": "3.png", "price": "20000000" },
+    { "name": "Điện thoại Realme 5", "img": "5.png", "price": "8000000" },
+    { "name": "Điện thoại BlackBarry", "img": "4.png", "price": "9000000" },
+    { "name": "Điện thoại Nokia 3.2", "img": "6.png", "price": "5000000" },
+    { "name": "Điện thoại Nokia 3.2", "img": "6.png", "price": "5000000" },
+    { "name": "Điện thoại Iphone 8", "img": "3.png", "price": "20000000" },
+    { "name": "Điện thoại BlackBarry", "img": "4.png", "price": "9000000" },
+    { "name": "Điện thoại Realme 5", "img": "5.png", "price": "8000000" }
+]

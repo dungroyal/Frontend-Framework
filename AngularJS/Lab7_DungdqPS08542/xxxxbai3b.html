@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 </head>
 
-<body ng-app="myapp">
+<body ng-app="myapp" ng-controller="thethao">
     <header class="row bg-primary">
         <div class="container">
             <div class="row ">
@@ -67,16 +67,14 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="card text-dark col-9 p-0 mt-3" style="min-height: 800px;">
-                <div ng-view class="p-0"></div>
+            <div class="card text-dark col-9 p-0 mt-3">
+                <div ng-view class="p-5"></div>
+
             </div>
             <aside class="col-3 mt-3">
                 <div class="card mt-0 ml-n2 mr-n2 catalog">
                     <div class="card-header text-white bg-dark">LOẠI TIN</div>
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="#!sanpham" class="text-dark ">Danh sách sản phẩm</a>
-                        </li>
                         <li class="list-group-item">
                             <a href="#!thethao" class="text-dark ">Thể thao</a>
                         </li>
@@ -84,7 +82,7 @@
                             <a href="#!giaoduc" class="text-dark">Giáo dục</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#!xahoi" class="text-dark">Sức khỏe</a>
+                            <a href="#!xahoi" class="text-dark">Xã hội</a>
                         </li>
                         <li class="list-group-item">
                             <a href="#!thohay" class="text-dark">Thơi hay</a>
@@ -181,7 +179,7 @@
                         <div class="copyright-menu">
                             <ul>
                                 <li>
-                                    <a href="#">Termsx</a>
+                                    <a href="#">Terms {{title}}</a>
                                 </li>
                                 <li>
                                     <a href="#">Privacy Policy</a>
@@ -205,8 +203,7 @@
     app.config(function($routeProvider) {
         $routeProvider
             .when("/thethao", {
-                templateUrl: "page/news.html",
-                controller: "thethao"
+                templateUrl: "page/news.html"
             })
             .when("/giaoduc", {
                 templateUrl: "page/news.html",
@@ -214,180 +211,15 @@
             })
             .when("/xahoi", {
                 templateUrl: "page/news.html",
-                controller: "suckhoe"
+                controller: "xahoi"
             })
             .when("/thohay", {
                 templateUrl: "page/news.html",
                 controller: "thohay"
             })
-            .when("/sanpham", {
-                templateUrl: "page/products.html",
-                controller: "sanpham"
-            })
             .otherwise({
-                template: "<h1 class='p-5, text-center'>Trang chủ</h1>"
+                template: "<h1>Trang chủ</h1>"
             })
-    });
-    app.controller("thethao", function($scope, $http, $rootScope) {
-        $scope.title = 'Tin thể thao';
-        $scope.news = [];
-        $scope.pageSize = 3;
-        $scope.start = 0;
-
-        $scope.next = function() {
-            if ($scope.start < $scope.news.length - $scope.pageSize) {
-                $scope.start += $scope.pageSize;
-            }
-        };
-        $scope.prev = function() {
-            if ($scope.start > 0) {
-                $scope.start -= $scope.pageSize;
-            }
-        };
-        $scope.first = function() {
-            $scope.start = 0
-        };
-        $scope.last = function() {
-            sotrang = Math.ceil($scope.news.length / $scope.pageSize);
-            $scope.start = (sotrang - 1) * $scope.pageSize;
-        };
-        $http.get("js/Thể thao.js").then(
-            function(r) {
-                $scope.news = r.data;
-            },
-            function(d) {
-                alert('lỗi :' + d.statusText);
-            }
-        );
-    });
-    app.controller("giaoduc", function($scope, $http, $rootScope) {
-        $scope.title = 'Tin giáo dục';
-        $scope.news = [];
-        $scope.pageSize = 3;
-        $scope.start = 0;
-
-        $scope.next = function() {
-            if ($scope.start < $scope.news.length - $scope.pageSize) {
-                $scope.start += $scope.pageSize;
-            }
-        };
-        $scope.prev = function() {
-            if ($scope.start > 0) {
-                $scope.start -= $scope.pageSize;
-            }
-        };
-        $scope.first = function() {
-            $scope.start = 0
-        };
-        $scope.last = function() {
-            sotrang = Math.ceil($scope.news.length / $scope.pageSize);
-            $scope.start = (sotrang - 1) * $scope.pageSize;
-        };
-        $http.get("js/Sống đẹp.js").then(
-            function(r) {
-                $scope.news = r.data;
-            },
-            function(d) {
-                alert('lỗi :' + d.statusText);
-            }
-        );
-    });
-    app.controller("suckhoe", function($scope, $http, $rootScope) {
-        $scope.title = 'Tin sức khỏe';
-        $scope.news = [];
-        $scope.pageSize = 3;
-        $scope.start = 0;
-
-        $scope.next = function() {
-            if ($scope.start < $scope.news.length - $scope.pageSize) {
-                $scope.start += $scope.pageSize;
-            }
-        };
-        $scope.prev = function() {
-            if ($scope.start > 0) {
-                $scope.start -= $scope.pageSize;
-            }
-        };
-        $scope.first = function() {
-            $scope.start = 0
-        };
-        $scope.last = function() {
-            sotrang = Math.ceil($scope.news.length / $scope.pageSize);
-            $scope.start = (sotrang - 1) * $scope.pageSize;
-        };
-        $http.get("js/Sức khỏe.js").then(
-            function(r) {
-                $scope.news = r.data;
-            },
-            function(d) {
-                alert('lỗi :' + d.statusText);
-            }
-        );
-    });
-    app.controller("thohay", function($scope, $http, $rootScope) {
-        $scope.title = 'Thơ hay';
-        $scope.news = [];
-        $scope.pageSize = 3;
-        $scope.start = 0;
-
-        $scope.next = function() {
-            if ($scope.start < $scope.news.length - $scope.pageSize) {
-                $scope.start += $scope.pageSize;
-            }
-        };
-        $scope.prev = function() {
-            if ($scope.start > 0) {
-                $scope.start -= $scope.pageSize;
-            }
-        };
-        $scope.first = function() {
-            $scope.start = 0
-        };
-        $scope.last = function() {
-            sotrang = Math.ceil($scope.news.length / $scope.pageSize);
-            $scope.start = (sotrang - 1) * $scope.pageSize;
-        };
-
-        $http.get("js/Thơ hay.js").then(
-            function(r) {
-                $scope.news = r.data;
-            },
-            function(d) {
-                alert('lỗi :' + d.statusText);
-            }
-        );
-    });
-    app.controller("sanpham", function($scope, $http, $rootScope) {
-        $scope.title = 'Danh sách sản phẩm';
-        $scope.products = [];
-        $scope.pageSize = 6;
-        $scope.start = 0;
-
-        $scope.next = function() {
-            if ($scope.start < $scope.products.length - $scope.pageSize) {
-                $scope.start += $scope.pageSize;
-            }
-        };
-        $scope.prev = function() {
-            if ($scope.start > 0) {
-                $scope.start -= $scope.pageSize;
-            }
-        };
-        $scope.first = function() {
-            $scope.start = 0
-        };
-        $scope.last = function() {
-            sotrang = Math.ceil($scope.products.length / $scope.pageSize);
-            $scope.start = (sotrang - 1) * $scope.pageSize;
-        };
-        $http.get("js/products.js").then(
-            function(r) {
-                $scope.products = r.data;
-            },
-            function(d) {
-                alert('lỗi :' + d.statusText);
-            }
-        );
     });
 </script>
 

@@ -4,6 +4,10 @@ body {
     font-weight: 500;
 }
 
+.tran180 {
+    transform: rotate(180deg);
+}
+
 header {
     background-image: url('../images/pngtree-happy-shopping-light-spot-poster-background-image_122448.jpg');
     background-repeat: no-repeat;
