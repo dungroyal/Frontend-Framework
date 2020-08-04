@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Bài 3b | Lab7 | AngularJS | DungdqPS08542</title>
+    <title>Bài 4 | Lab7 | AngularJS | DungdqPS08542</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
     <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="css/style_bai3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 </head>
 
-<body ng-app="myapp" ng-controller="thethao">
+<body ng-app="myapp">
     <header class="row bg-primary">
         <div class="container">
             <div class="row ">
@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#!ps08542"><i class="fas fa-home"></i> Trang chủ <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#!home"><i class="fas fa-home"></i> Trang chủ <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> Giới thiệu</a>
@@ -67,25 +67,27 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="card text-dark col-9 p-0 mt-3">
-                <div ng-view class="p-5"></div>
-
+            <div class="card text-dark col-9 p-0 mt-3" style="min-height: 800px;">
+                <div ng-view class="p-0"></div>
             </div>
             <aside class="col-3 mt-3">
                 <div class="card mt-0 ml-n2 mr-n2 catalog">
                     <div class="card-header text-white bg-dark">LOẠI TIN</div>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="#!thethao" class="text-dark ">Thể thao</a>
+                            <a href="#!home" class="text-dark ">Trang chủ</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#!giaoduc" class="text-dark">Giáo dục</a>
+                            <a href="#!Thể thao" class="text-dark ">Thể thao</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#!xahoi" class="text-dark">Xã hội</a>
+                            <a href="#!Sống đẹp" class="text-dark">Giáo dục</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#!thohay" class="text-dark">Thơi hay</a>
+                            <a href="#!Sức khỏe" class="text-dark">Sức khỏe</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#!Thơ hay" class="text-dark">Thơi hay</a>
                         </li>
                     </ul>
                 </div>
@@ -179,7 +181,7 @@
                         <div class="copyright-menu">
                             <ul>
                                 <li>
-                                    <a href="#">Terms {{title}}</a>
+                                    <a href="#">Termsx</a>
                                 </li>
                                 <li>
                                     <a href="#">Privacy Policy</a>
@@ -202,26 +204,53 @@
     var app = angular.module('myapp', ['ngRoute']);
     app.config(function($routeProvider) {
         $routeProvider
-            .when("/thethao", {
-                templateUrl: "page/news.html"
+            .when("/home", {
+                template: "<h1 class='p-5, text-center'>Trang chủ</h1>"
             })
-            .when("/giaoduc", {
+            .when("/:ten", {
                 templateUrl: "page/news.html",
-                controller: "giaoduc"
-            })
-            .when("/xahoi", {
-                templateUrl: "page/news.html",
-                controller: "xahoi"
-            })
-            .when("/thohay", {
-                templateUrl: "page/news.html",
-                controller: "thohay"
+                controller: "views"
             })
             .otherwise({
-                template: "<h1>Trang chủ</h1>"
+                template: "<h1 class='p-5, text-center'>Trang chủ</h1>"
             })
     });
-</script>
+    app.controller("views", function($scope, $http, $routeParams) {
+        $scope.title = 'Tin ' + $routeParams.ten;
+        $scope.news = [];
+        $scope.pageSize = 3;
+        $scope.start = 0;
 
+        // Get dữ liệu
+        var url = "js/" + $routeParams.ten + ".js";
+        $http.get(url).then(
+            function(r) {
+                $scope.news = r.data;
+            },
+            function(d) {
+                alert('lỗi :' + d.statusText);
+            }
+        );
+
+        // Phân trang
+        $scope.next = function() {
+            if ($scope.start < $scope.news.length - $scope.pageSize) {
+                $scope.start += $scope.pageSize;
+            }
+        };
+        $scope.prev = function() {
+            if ($scope.start > 0) {
+                $scope.start -= $scope.pageSize;
+            }
+        };
+        $scope.first = function() {
+            $scope.start = 0
+        };
+        $scope.last = function() {
+            sotrang = Math.ceil($scope.news.length / $scope.pageSize);
+            $scope.start = (sotrang - 1) * $scope.pageSize;
+        };
+    });
+</script>
 
 </html>
