@@ -1,9 +1,8 @@
-﻿[
-    {
+﻿[{
         "username": "teonv",
-        "password": "iloveyou",
+        "password": "123",
         "fullname": "Nguyễn Văn Tèo",
-        "email": "teonv@fpt.edu.vn",
+        "email": "dungdq5520@gmail.com",
         "gender": "true",
         "birthday": "1995-12-21",
         "schoolfee": "1500000",

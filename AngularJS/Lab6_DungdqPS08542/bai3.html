@@ -94,6 +94,7 @@
                 alert('lỗi :' + d.statusText);
             }
         )
+        console.log($scope.sanpham);
         $scope.khuyenmai = function(quantity) {
             if (quantity >= 15) return 100000;
             else if (quantity >= 10) return 60000;

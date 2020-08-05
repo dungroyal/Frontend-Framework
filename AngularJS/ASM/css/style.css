@@ -2,6 +2,8 @@
 body {
     font-family: 'Quicksand';
     font-weight: 500;
+    background-image: url("../images/bg.png");
+    background-color: #ffffff;
 }
 
 a:hover {
