@@ -1,0 +1,104 @@
+    <div class="container">
+        <div class="container emp-profile">
+            <form name="FormUpdatePro" ng-submit="updateFrofile">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="images/students_icon.png" alt="" />
+                            <!-- <div class="file btn btn-lg btn-primary">
+                                Đổi ảnh đại diện
+                                <input type="file" name="file" />
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                            <h4 class=" font-weight-bold">
+                                Đoàn Quốc Dũng
+                            </h4>
+                            <h6>
+                                Thành viên mới
+                            </h6>
+                            <p class="proile-rating">Điểm trung bình : <span>8 / Giỏi</span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active">Thông tin các nhân</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="profile-edit-btn  bg-success text-white text-center mb-2">Cập nhật</button>
+                        <button onclick="window.location.href='#!/changepassword';" class="profile-edit-btn bg-danger text-white text-center">Đổi mật khẩu</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>Liên kết</p>
+                            <a href="">Facebook</a><br/>
+                            <a href="">Github</a><br/>
+                            <a href="">Gmail</a>
+                            <p>Kỹ năng</p>
+                            <a href="">Web Designer</a><br/>
+                            <a href="">Web Developer</a><br/>
+                            <a href="">WordPress</a><br/>
+                            <a href="">PHP, .Net</a><br/>
+                            <div>{{listUser}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" >
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Họ và tên</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Đoàn Quốc Dũng</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>doanquocdung55@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Học phí</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>0đ</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Giới tính</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                         <div class="form-group">
+                                          <select class="form-control" name="gender" id="gender">
+                                            <option value="true">Nam</option>
+                                            <option value="false">Nữ</option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Ngày sinh</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="date" name="birthday" id="birthday">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
