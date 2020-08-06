@@ -1,8 +1,52 @@
-[
+var Subjects = [{
+        "Id": "DBAV",
+        "Name": "SQL Server",
+        "Logo": "DBAV.png"
+    },
     {
-        "Id": "ADAV",
-        "Name": "Lập trình Android nâng cao",
-        "Logo": "ADAV.jpg"
+        "Id": "DBBS",
+        "Name": "Cơ sở dữ liệu",
+        "Logo": "DBBS.png"
+    },
+    {
+        "Id": "GAME",
+        "Name": "Lập trình game 2D",
+        "Logo": "GAME.png"
+    },
+    {
+        "Id": "VBPR",
+        "Name": "Lập trình VB.NET",
+        "Logo": "VBPR.png"
+    },
+    {
+        "Id": "WEBU",
+        "Name": "Xây dựng trang web",
+        "Logo": "WEBU.jpg"
+    },
+    {
+        "Id": "HTCS",
+        "Name": "HTML5 và CSS3",
+        "Logo": "HTCS.jpg"
+    },
+    {
+        "Id": "INMA",
+        "Name": "Internet Marketing",
+        "Logo": "INMA.jpg"
+    },
+    {
+        "Id": "ASNE",
+        "Name": "Lập trình ASP.NET",
+        "Logo": "ASNE.png"
+    },
+    {
+        "Id": "JAAV",
+        "Name": "Lập trình Java nâng cao",
+        "Logo": "JAAV.png"
+    },
+    {
+        "Id": "JABS",
+        "Name": "Lập trình hướng đối tượng với Java",
+        "Logo": "JABS.png"
     },
     {
         "Id": "ADBS",
@@ -30,41 +74,6 @@
         "Logo": "CLCO.jpg"
     },
     {
-        "Id": "DBAV",
-        "Name": "SQL Server",
-        "Logo": "DBAV.png"
-    },
-    {
-        "Id": "DBBS",
-        "Name": "Cơ sở dữ liệu",
-        "Logo": "DBBS.png"
-    },
-    {
-        "Id": "GAME",
-        "Name": "Lập trình game 2D",
-        "Logo": "GAME.png"
-    },
-    {
-        "Id": "HTCS",
-        "Name": "HTML5 và CSS3",
-        "Logo": "HTCS.jpg"
-    },
-    {
-        "Id": "INMA",
-        "Name": "Internet Marketing",
-        "Logo": "INMA.jpg"
-    },
-    {
-        "Id": "JAAV",
-        "Name": "Lập trình Java nâng cao",
-        "Logo": "JAAV.png"
-    },
-    {
-        "Id": "JABS",
-        "Name": "Lập trình hướng đối tượng với Java",
-        "Logo": "JABS.png"
-    },
-    {
         "Id": "JSPR",
         "Name": "Lập trình JavaScript",
         "Logo": "JSPR.png"
@@ -78,6 +87,10 @@
         "Id": "MOWE",
         "Name": "Thiết kế web cho điện thoại di động",
         "Logo": "MOWE.png"
+    }, {
+        "Id": "ADAV",
+        "Name": "Lập trình Android nâng cao",
+        "Logo": "ADAV.jpg"
     },
     {
         "Id": "PHPP",
@@ -88,15 +101,5 @@
         "Id": "PMAG",
         "Name": "Quản lý dự án với Agile",
         "Logo": "PMAG.jpg"
-    },
-    {
-        "Id": "VBPR",
-        "Name": "Lập trình VB.NET",
-        "Logo": "VBPR.png"
-    },
-    {
-        "Id": "WEBU",
-        "Name": "Xây dựng trang web",
-        "Logo": "WEBU.jpg"
     }
 ]

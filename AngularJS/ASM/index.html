@@ -88,7 +88,7 @@
                         <a href="javascript:void(0);" title="0398 022 720"><i class="fas fa-mobile-alt"></i></a>
                     </div>
                 </div>
-                <p class="copyright">DungRoyal © 2020 {{titleapp}}</p>
+                <p class="copyright">DungRoyal © 2020 </p>
             </div>
         </footer>
     </div>
@@ -98,6 +98,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://code.angularjs.org/1.8.0/angular-route.min.js"></script>
+<script src="db/Students.js"></script>
+<script src="db/Subjects.js"></script>
 <script>
     var app = angular.module('myapp', ['ngRoute']);
     app.config(function($routeProvider) {
@@ -114,65 +116,60 @@
             })
             .when('/contact', {
                 templateUrl: 'pages/contact.html',
-                controller: 'contactCtrl'
+                controller: 'homeCtrl'
             })
             .when('/feedback', {
                 templateUrl: 'pages/feedback.html',
-                controller: 'feedbackCtrl'
+                controller: 'homeCtrl'
             })
             .when('/exam', {
                 templateUrl: 'pages/exam.html',
-                controller: 'examCtrl'
+                controller: 'homeCtrl'
             })
             .when('/profile', {
                 templateUrl: 'pages/profile.html',
-                controller: 'profileCtrl'
+                controller: 'homeCtrl'
             })
             .when('/changepassword', {
                 templateUrl: 'pages/changepassword.html',
-                controller: 'changepasswordCtrl'
+                controller: 'homeCtrl'
             })
             .when('/forgetpassword', {
                 templateUrl: 'pages/forgetpassword.html',
-                controller: 'forgetpasswordCtrl'
+                controller: 'homeCtrl'
             })
             .when('/login', {
                 templateUrl: 'pages/login.html',
-                controller: 'loginCtrl'
+                controller: 'homeCtrl'
             })
             .when('/register', {
                 templateUrl: 'pages/register.html',
-                controller: 'registerCtrl'
+                controller: 'homeCtrl'
             })
             .otherwise({
                 redirectTo: '/'
             })
     });
-    app.controller("homeCtrl", function($scope, $rootScope) {
+
+    app.controller("homeCtrl", function($scope, $rootScope, $http) {
         var fullname = sessionStorage.getItem("fullname");
         var email = sessionStorage.getItem("email");
         if (fullname != "") $rootScope.fullname = fullname;
         if (email != "") $rootScope.email = email;
         $rootScope.logout = function() {
             sessionStorage.clear();
-            document.location = "index.html";
+            document.location = "index.html#!/login";
         }
-    });
-    app.controller("loginCtrl", function($scope, $http) {
-        $scope.listUser = [];        
-        $http.get("db/Students.js").then(
-            function(r) {
-                $scope.listUser = r.data;
-            },
-            function(d) {
-                alert('Lỗi : Vui lòng chạy website trên Server');
-            }
-        )
+
+        // Get Students
+        $scope.listUser = listStudent;
+        // Get Subjects
+        $scope.Subjects = Subjects;
+
+        // Login
         $scope.checkUser = function() {
             var email = $scope.email;
             var password = $scope.password;
-            console.log(email);
-            console.log(password);
             var check = false;
             for (var i = 0; i < $scope.listUser.length; i++) {
                 user = $scope.listUser[i];
@@ -182,30 +179,65 @@
                     sessionStorage.setItem("fullname", user.fullname);
                     document.location = "index.html";
                 }
-                if (check == false) {
-                    $scope.error = "Sai tên đăng nhập hoặc mật khẩu!";
-                }
+            }
+
+            if (check == false) {
+                $scope.error = "Sai tên đăng nhập hoặc mật khẩu!";
             }
         }
-    });
-    
-    app.controller("registerCtrl", function($scope, $http) {
-        $scope.listUser = [];
-        $http.get("db/Students.js").then(
-            function(r) {
-                $scope.listUser = r.data;
-            },
-            function(d) {
-                alert('Lỗi : Vui lòng chạy website trên Server');
+
+        // Get info User
+        for (var i = 0; i < $scope.listUser.length; i++) {
+            user = $scope.listUser[i];
+            if (email == user.email) {
+                $scope.key = i;
+                break;
             }
-        )
+        }
+        $scope.getStudent = angular.copy($scope.listUser[$scope.key]);
+
+        // Register
         $scope.registerUser = function() {
             var fullName = $scope.fullName;
             var email = $scope.email;
             var password = $scope.Password;
-            console.log(fullName);
-            console.log(password);
-            console.log(email);
+
+            check = true;
+
+            for (var i = 0; i < $scope.listUser.length; i++) {
+                user = $scope.listUser[i];
+                if (email == user.email) {
+                    $scope.registerError = "Địa chỉ Email đã được sử dụng.";
+                    check = false;
+                    break;
+                }
+            }
+
+            if (check == true) {
+                $scope.listUser.push({
+                    "password": password,
+                    "fullname": fullName,
+                    "email": email,
+                    "gender": "true",
+                    "birthday": "2000-05-05",
+                    "schoolfee": "0",
+                    "marks": "8"
+                });
+                document.location = "index.html#!/login";
+            }
+        }
+
+        // changePassword
+        $scope.changePassword = function() {
+            var oldPassword = $scope.oldPassword;
+            var newPassword = $scope.newPassword;
+            if ($scope.getStudent.password == oldPassword) {
+                $scope.listUser[$scope.key].password = newPassword;
+                $scope.changePasssuc = "Đổi mật khẩu thành công."
+            } else {
+                $scope.changePassErr = "Mật khẩu cũ không đúng."
+            }
+
         }
     });
 

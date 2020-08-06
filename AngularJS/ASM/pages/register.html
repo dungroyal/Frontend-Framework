@@ -1,148 +1,50 @@
-    <div class="container px-1 px-md-5 px-lg-1 px-xl-5 pt-3 pb-5 mx-auto">
-        <div class="card border-0 card_form_bg">
-            <div class="row d-flex">
-                <div class="col-lg-6">
-                    <div class="card1 pb-5">
-                        <div class="row mt-5"></div>
-                        <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="images/Registration-process-Sales.Rocks_.png" class="image"> </div>
-                    </div>
+<div class="container px-1 px-md-5 px-lg-1 px-xl-5 pt-3 pb-5 mx-auto">
+    <div class="card border-0 card_form_bg">
+        <div class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <div class="row mt-5"></div>
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="images/Registration-process-Sales.Rocks_.png" class="image"> </div>
                 </div>
+            </div>
 
-                <div class="col-lg-6">
-                    <div class="card2 card border-0 px-4 py-5 card_form_bg">
-                        <form name="formRegister" ng-submit="registerUser()">
-                            <div class="row mb-4 px-3">
-                                <h6 class="mb-0 mr-4 mt-2 font-weight-bold">Đăng ký thành viên</h6>
-                            </div>
-                            <div class="row px-3">
-                                <label class="mb-1"><h6 class="mb-0 text-sm">Họ và tên</h6></label>
-                                <input class="mb-4" type="text" ng-model="fullName" name="fullName" placeholder="Nhập họ và tên" required ng-minlength="8">
-                                <span ng-show="formRegister.$dirty && formRegister.fullName.$error.minlength" class="badge badge-danger font-italic p-1 mt-n3 mb-3">Tên quá ngắn, họ tên phải ít nhất 8 kí tự </span>
-                            </div>
-                            <div class="row px-3">
-                                <label class="mb-1"><h6 class="mb-0 text-sm">Email</h6></label>
-                                <input class="mb-4" type="email" ng-model="email" name="email" placeholder="Nhập địa chỉ email" required>
-                                <span ng-show="formRegister.email.$invalid && !formRegister.email.$pristine" class="badge badge-danger font-italic p-1 mt-n3 mb-3">Nhập email chưa hợp lệ.</span>
-                            </div>
-                            <div class="row px-3">
-                                <label class="mb-1"><h6 class="mb-0 text-sm">Mật khẩu</h6></label>
-                                <input class="mb-4" type="password" id="password" placeholder="Nhập mật khẩu" required ng-minlength="6" name="Password" ng-model="Password">
-                                <span class="badge badge-danger font-italic p-1 mt-n3 mb-3" ng-show="formRegister.Password.$error.minlength">Mật khẩu quá ngắn, ít nhất 6 kí tự</span>
-                            </div>
-                            <div class="row px-3">
-                                <label class="mb-1"><h6 class="mb-0 text-sm">Xác nhận mật khẩu</h6></label>
-                                <input type="password" name="ConfirmPassword" placeholder="Nhập lại mật khẩu" required equals-to="formRegister.Password" name="ConfirmPassword" ng-model="ConfirmPassword">
-                                <span class="badge badge-danger font-italic p-1 mt-1" ng-show="!formRegister.ConfirmPassword.$error.required && formRegister.ConfirmPassword.$error.equalsTo">Mật khẩu không trùng khớp</span>
-                            </div>
+            <div class="col-lg-6">
+                <div class="card2 card border-0 px-4 py-5 card_form_bg">
+                    <form name="formRegister" ng-submit="registerUser()">
+                        <div class="row mb-4 px-3">
+                            <h6 class="mb-0 mr-4 mt-2 font-weight-bold">Đăng ký thành viên</h6>
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Họ và tên</h6></label>
+                            <input class="mb-4" type="text" ng-model="fullName" name="fullName" placeholder="Nhập họ và tên" required ng-minlength="8">
+                            <span ng-show="formRegister.$dirty && formRegister.fullName.$error.minlength" class="badge badge-danger font-italic p-1 mt-n3 mb-3">Tên quá ngắn, họ tên phải ít nhất 8 kí tự </span>
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Email</h6></label>
+                            <input class="mb-4" type="email" ng-model="email" name="email" placeholder="Nhập địa chỉ email" required>
+                            <span ng-show="formRegister.email.$invalid && !formRegister.email.$pristine" class="badge badge-danger font-italic p-1 mt-n3 mb-3">Nhập email chưa hợp lệ.</span>
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Mật khẩu</h6></label>
+                            <input class="mb-4" type="password" id="password" placeholder="Nhập mật khẩu" required ng-minlength="6" name="Password" ng-model="Password">
+                            <span class="badge badge-danger font-italic p-1 mt-n3 mb-3" ng-show="formRegister.Password.$error.minlength">Mật khẩu quá ngắn, ít nhất 6 kí tự</span>
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Xác nhận mật khẩu</h6></label>
+                            <input type="password" name="ConfirmPassword" placeholder="Nhập lại mật khẩu" required equals-to="formRegister.Password" name="ConfirmPassword" ng-model="ConfirmPassword">
+                            <span class="badge badge-danger font-italic p-1 mt-1" ng-show="!formRegister.ConfirmPassword.$error.required && formRegister.ConfirmPassword.$error.equalsTo">Mật khẩu không trùng khớp</span>
+                        </div>
 
-                            <div class="row px-3 mb-4"></div>
-                            <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" ng-disabled="formRegister.email.$invalid || formRegister.fullName.$invalid|| formRegister.password.$invalid ||formRegister.ConfirmPassword.$error.equalsTo">Đăngký</button>                                </div>
-                            <div class="row mb-4 px-3"> <small class="font-weight-bold">Bạn đã có tài khoản? <a
+                        <div ng-if="registerError" class="alert text-center alert-danger">
+                            <strong>{{registerError}}</strong>
+                        </div>
+
+                        <div class="row mb-3 px-3 mt-2"> <button type="submit" class="btn btn-blue text-center" ng-disabled="formRegister.email.$invalid || formRegister.fullName.$invalid|| formRegister.password.$invalid ||formRegister.ConfirmPassword.$error.equalsTo">Đăngký</button>                            </div>
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Bạn đã có tài khoản? <a
                                 href="login.html" class="text-danger ">Nhập nhập ngay</a></small> </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-    
-    <div class="footer-dark">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Dịch vụ</h3>
-                        <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Web Manager</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Về chúng tôi</h3>
-                        <ul>
-                            <li><a href="#">Royal Team</a></li>
-                            <li><a href="#">Gò Vấp, Hồ Chí Minh</a></li>
-                            <li><a href="#">0398 022 720</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 item text">
-                        <h3>Royal LMS</h3>
-                        <p>Công cụ làm trắc nghiệm online về chủ đề lập trình, giúp cho lập trình viên có thể học hỏi được kiến thức mới.</p>
-                    </div>
-                    <div class="col item social">
-                        <a href="https://www.facebook.com/Quocdungroyal/" title="Đoàn Quốc Dũng"><i class="fab fa-facebook-f"></i></a>
-                        <a href="javascript:void(0);" title="doanquocdung55@gmail.com"><i class="fab fa-google"></i></a>
-                        <a href="https://github.com/dungroyal"><i class="fab fa-github"></i></a>
-                        <a href="javascript:void(0);" title="0398 022 720"><i class="fas fa-mobile-alt"></i></a>
-                    </div>
-                </div>
-                <p class="copyright">DungRoyal © 2020</p>
-            </div>
-        </footer>
-    </div>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="db/Students.js"></script>
-
-<script>
-    var app = angular.module("myapp", []);
-    app.controller("registerCtrl", function($scope, $http) {
-        $scope.listUser = [];
-        $http.get("db/Students.js").then(
-            function(r) {
-                $scope.listUser = r.data;
-            },
-            function(d) {
-                alert('Lỗi : Vui lòng chạy website trên Server');
-            }
-        )
-        $scope.registerUser = function() {
-            var fullName = $scope.fullName;
-            var email = $scope.email;
-            var password = $scope.Password;
-            console.log(fullName);
-            console.log(password);
-            console.log(email);
-
-            // var check = false;
-            // for (var i = 0; i < $scope.listUser.length; i++) {
-            //     user = $scope.listUser[i];
-            //     if (email == user.email && password == user.password) {
-            //         check = true;
-            //         sessionStorage.setItem("email", user.email);
-            //         sessionStorage.setItem("fullname", user.fullname);
-            //         document.location = "index.html";
-            //     }
-            //     if (check == false) {
-            //         $scope.error = "Sai tên đăng nhập hoặc mật khẩu!";
-            //     }
-            // }
-        }
-    });
-
-    // Kiểm tra mật khẩu
-    app.directive('equalsTo', [function() {
-        return {
-            restrict: 'A',
-            scope: true,
-            require: 'ngModel',
-            link: function(scope, elem, attrs, control) {
-                var check = function() {
-                    var p1 = scope.$eval(attrs.ngModel);
-                    var p2 = scope.$eval(attrs.equalsTo).$viewValue;
-                    return p1 == p2;
-                };
-                scope.$watch(check, function(isValid) {
-                    control.$setValidity("equalsTo", isValid);
-                });
-            }
-        };
-    }]);
-</script>
-
-
-</html>
+</div>
