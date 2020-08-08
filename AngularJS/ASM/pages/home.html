@@ -9,12 +9,12 @@
     <div class="card-wrapper col-md-6 col-lg-4 col-xl-3" ng-repeat="sub in Subjects |limitTo:8">
         <div class="card card_custom">
             <div class="card-img-wrapper">
-                <img class="card-img-top" src="images/{{sub.Logo}}" alt="Card image cap">
+                <img class="card-img-top" ng-src="images/{{sub.Logo}}" alt="Card image cap">
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{sub.Name}}</h5>
                 <div class="card-content">
-                    <a href="#!exam" class="btn btn-primary">Làm bài</a>
+                    <a href="#!exam/{{sub.Id}}" class="btn btn-primary">Làm bài</a>
                 </div>
             </div>
         </div>

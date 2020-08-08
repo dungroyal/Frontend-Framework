@@ -2,47 +2,45 @@
     <div class="col-md-3 col-lg-3 col-xl-3 p-0 mb-5">
         <div class="card">
             <div class="card-header text-center font-weight-bold h5 p-2">
-                Danh sách
+                Chủ đề
             </div>
             <div class="card-body list-group p-0" id="nav-exam">
-                <a href="#!exam" class="list-group-item" ng-repeat="sub in Subjects">{{sub.Name}}</a>
+                <a href="#!exam/{{sub.Id}}" class="list-group-item" ng-repeat="sub in Subjects">{{sub.Name}}</a>
             </div>
         </div>
     </div>
 
-    <div class="card-wrapper col-md-9 col-lg-9 col-xl-9">
+    <div class="card-wrapper col-md-9 col-lg-9 col-xl-9" ng-if="showExam">
         <div class="card text-center mb-5">
             <div class="card-header text-left font-weight-bold text-uppercase">
-                <div class="exam-title float-left pt-2 h4"><i class="fas fa-book-reader"></i> Lập trình ASP.NET</div>
+                <div class="exam-title float-left pt-2 h4"><i class="fas fa-book-reader mr-1"></i> {{getExam.Name}}</div>
                 <div class="exam-time float-right ml-4 h4"><button class="btn btn-success p-2 m-0">Nộp bài</button></div>
-                <div class="exam-time float-right pt-2 h4"><i class="fas fa-hourglass-half"></i> 15:06</div>
+                <div class="exam-time float-right pt-2 h4"><i class="fas fa-hourglass-half"></i> 0{{m}}:{{s==0?"00":s}}</div>
             </div>
-            <div class="card-body exam_content text-left">
-                <h5>5. Lập trình viên thường gán giá trị mặc định cho các điều khiển trong phương thức xử lý sự kiện ........... của trang</h5>
+            <div class="card-body exam_content text-left" ng-repeat="item in quizs|limitTo:pageSize:start">
+                <h5><strong>Câu {{start+1}}.</strong> {{item.Text}}</h5>
                 <hr>
                 <p class="card-text">
-                    <div class="custom-control custom-radio mb-2 h5">
-                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio1">Prerender</label>
-                    </div>
-                    <div class="custom-control custom-radio mb-2 h5">
-                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio2">Init</label>
-                    </div>
-                    <div class="custom-control custom-radio mb-2 h5">
-                        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio3">Load</label>
-                    </div>
-                    <div class="custom-control custom-radio mb-2 h5">
-                        <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio4">Unload</label>
+                    <div class="custom-control custom-radio mb-2 h5" ng-repeat="question in item.Answers">
+                        <input type="radio" id="{{question.Id}}" name="customRadio" ng-click="change_item($event)" answer="{{item.AnswerId}}" id-answer="{{question.Id}}" class="custom-control-input">
+                        <label class="custom-control-label" for="{{question.Id}}">{{question.Text}}</label>
                     </div>
                 </p>
             </div>
             <div class="card-footer text-muted d-flex justify-content-between">
-                <div class="exam-next"><button class="btn btn-primary"><i class="fas fa-backward"></i> Trước</button></div>
-                <div class="exam-next font-weight-bold h5">Điểm số: 05/20</div>
-                <div class="exam-next"><button class="btn btn-primary">Tiếp theo <i class="fas fa-forward"></i></button></div>
+                <div class="exam-next"><button class="btn btn-primary" ng-click="prev();"><i class="fas fa-backward"></i> Trước</button></div>
+                <div class="exam-next font-weight-bold h5">Điểm số: {{point}}/{{total}}</div>
+                <div class="exam-next"><button class="btn btn-primary" ng-click="next();">Tiếp theo <i class="fas fa-forward"></i></button></div>
+            </div>
+        </div>
+    </div>
+    <div class="card-wrapper col-md-9 col-lg-9 col-xl-9" ng-if="!showExam">
+        <div class="card text-center mb-5">
+            <div class="card-header text-left font-weight-bold text-uppercase">
+                <div class="exam-title text-center pt-2 h4"><strong>Royal LMS</strong> - Trắc nghiệm lập tình online</div>
+            </div>
+            <div class="card-body exam_content text-center py-5">
+                <h4>Chọn bất cứ chủ đề nào mà bạn muốn</h4>
             </div>
         </div>
     </div>

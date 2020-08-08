@@ -126,6 +126,10 @@
                 templateUrl: 'pages/exam.html',
                 controller: 'homeCtrl'
             })
+            .when('/exam/:id', {
+                templateUrl: 'pages/exam.html',
+                controller: 'homeCtrl'
+            })
             .when('/profile', {
                 templateUrl: 'pages/profile.html',
                 controller: 'homeCtrl'
@@ -151,7 +155,12 @@
             })
     });
 
-    app.controller("homeCtrl", function($scope, $rootScope, $http) {
+    app.controller("homeCtrl", function($scope, $rootScope, $http, $routeParams, $timeout) {
+        // Get Students
+        $scope.listUser = listStudent;
+        // Get Subjects
+        $scope.Subjects = Subjects;
+        // Check Login
         var fullname = sessionStorage.getItem("fullname");
         var email = sessionStorage.getItem("email");
         if (fullname != "") $rootScope.fullname = fullname;
@@ -161,10 +170,85 @@
             document.location = "index.html#!/login";
         }
 
-        // Get Students
-        $scope.listUser = listStudent;
-        // Get Subjects
-        $scope.Subjects = Subjects;
+        // Đồng hồ
+        $scope.m = 05;
+        $scope.s = 00;
+        $scope.countDown = function() {
+            if ($scope.s == -1) {
+                $scope.m -= 1;
+                $scope.s = 59;
+            }
+            if ($scope.m == -1) {
+                alert('Hết giờ');
+                $scope.m = 0;
+                return false;
+            }
+            $timeout(function() {
+                $scope.s -= 1;
+                $scope.countDown();
+            }, 1000);
+        }
+
+        // Exam
+        var idExam = $routeParams.id;
+        if (idExam) {
+            $scope.countDown();
+            // Biến
+            $scope.showExam = true;
+            $scope.getExam = {};
+            $scope.quizs = [];
+            $scope.total = 0;
+            $scope.pageSize = 1;
+            $scope.start = 0;
+            $scope.point = 0;
+            $scope.idAnswer = 0;
+            $scope.answer = 1;
+            // -----------------------------
+
+            // Lấy dữ liệu về
+            var url = "db/Quizs/" + idExam + ".js";
+            $http.get(url).then(
+                function(r) {
+                    $scope.quizs = r.data;
+                    for (var i = 0; i < $scope.quizs.length; i++) {
+                        $scope.total += 1;
+                    }
+                },
+                function(d) {
+                    alert('lỗi :' + d.statusText);
+                }
+            );
+
+            // Get info Exam
+            for (var i = 0; i < $scope.Subjects.length; i++) {
+                exam = $scope.Subjects[i];
+                if (idExam == exam.Id) {
+                    $scope.getExam = exam;
+                }
+            }
+            // Tính điểm
+            $scope.change_item = function(e) {
+                $scope.idAnswer = e.target.attributes['id-answer'].value;
+                $scope.answer = e.target.attributes['answer'].value;
+            };
+            $scope.next = function() {
+                if ($scope.start < $scope.quizs.length - $scope.pageSize) {
+                    $scope.start += $scope.pageSize;
+                }
+
+                if ($scope.idAnswer == $scope.answer) {
+                    $scope.point += 1;
+                }
+            };
+            $scope.prev = function() {
+                if ($scope.start > 0) {
+                    $scope.start -= $scope.pageSize;
+                }
+            };
+
+        } else {
+            $scope.showExam = false;
+        }
 
         // Login
         $scope.checkUser = function() {
@@ -183,6 +267,23 @@
 
             if (check == false) {
                 $scope.error = "Sai tên đăng nhập hoặc mật khẩu!";
+            }
+        }
+
+        // Reset Password
+        $scope.resetPassword = function() {
+            var email = $scope.Email;
+            var check = false;
+            for (var i = 0; i < $scope.listUser.length; i++) {
+                user = $scope.listUser[i];
+                if (email == user.email) {
+                    check = true;
+                    $scope.resetPass = user.password;
+                    break;
+                }
+            }
+            if (check == false) {
+                $scope.emailError = "Địa chỉ Email chưa được sử dụng";
             }
         }
 
@@ -237,7 +338,6 @@
             } else {
                 $scope.changePassErr = "Mật khẩu cũ không đúng."
             }
-
         }
     });
 
