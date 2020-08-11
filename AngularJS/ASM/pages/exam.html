@@ -22,13 +22,13 @@
                 <hr>
                 <p class="card-text">
                     <div class="custom-control custom-radio mb-2 h5" ng-repeat="question in item.Answers">
-                        <input type="radio" id="{{question.Id}}" name="customRadio" ng-click="change_item($event)" answer="{{item.AnswerId}}" id-answer="{{question.Id}}" class="custom-control-input">
+                        <input type="radio" id="{{question.Id}}" name="customRadio" ng-click="checkAnswer($event)" answer="{{item.AnswerId}}" id-answer="{{question.Id}}" class="custom-control-input">
                         <label class="custom-control-label" for="{{question.Id}}">{{question.Text}}</label>
                     </div>
                 </p>
             </div>
             <div class="card-footer text-muted d-flex justify-content-between">
-                <div class="exam-next"><button class="btn btn-primary" ng-click="prev();"><i class="fas fa-backward"></i> Trước</button></div>
+                <!-- <div class="exam-next"><button class="btn btn-primary" ng-click="prev();"><i class="fas fa-backward"></i> Trước</button></div> -->
                 <div class="exam-next font-weight-bold h5">Điểm số: {{point}}/{{total}}</div>
                 <div class="exam-next"><button class="btn btn-primary" ng-click="next();">Tiếp theo <i class="fas fa-forward"></i></button></div>
             </div>

@@ -226,26 +226,25 @@
                     $scope.getExam = exam;
                 }
             }
-            // Tính điểm
-            $scope.change_item = function(e) {
+
+            $scope.checkAnswer = function(e) {
+                // Đáp án được chọn
                 $scope.idAnswer = e.target.attributes['id-answer'].value;
+                // Đáp án đúng
                 $scope.answer = e.target.attributes['answer'].value;
+                console.log("Đáp án được chọn:" + $scope.idAnswer + "- Đáp án đúng:" + $scope.answer);
             };
+
+            // Tính điểm
             $scope.next = function() {
                 if ($scope.start < $scope.quizs.length - $scope.pageSize) {
                     $scope.start += $scope.pageSize;
                 }
-
+                // Nếu đúng thì điểm sẽ cộng.
                 if ($scope.idAnswer == $scope.answer) {
                     $scope.point += 1;
                 }
             };
-            $scope.prev = function() {
-                if ($scope.start > 0) {
-                    $scope.start -= $scope.pageSize;
-                }
-            };
-
         } else {
             $scope.showExam = false;
         }
