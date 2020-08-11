@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Bài 1 - Lab8 | AngularJS | Đoàn Quốc Dũng</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
+    <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+
+<body ng-app="myapp">
+    <header class="row bg-primary">
+        <div class="container">
+            <div class="row ">
+                <div class="col-6 header_title position-relative">
+                    <div class="header_content">
+                        <h1 class="text-left">Royal Shoping Mall</h1>
+                        <h2 class=" badge badge-primary">The center poit of the professional programing</h2>
+                    </div>
+                </div>
+                <div class="col-6 position-relative">
+                    <img class="header_img" src="images/header-object.png" alt="Header">
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="row bg-dark">
+        <div class="container bg-dark">
+            <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#!home"><i class="fas fa-home"></i> Trang chủ <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#!about"><i class="fas fa-info-circle"></i> Giới thiệu</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#!contact"><i class="fas fa-address-card"></i> Liên hệ</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#!gopy"><i class="fas fa-address-card"></i> Góp ý</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i> Tài khoản
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="dangnhap.html">Đăng nhập</a>
+                            <a class="dropdown-item" href="#">Đăng ký</a>
+                            <a class="dropdown-item" href="#">Quên mật khẩu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row ">
+            <article class="row col-9 mt-3 pr-4">
+                <div ng-show="loading" class="pull-right label label-info">Loading...</div>
+                <div ng-view class="p-0"></div>
+            </article>
+            <aside class="col-3 mt-3">
+                <div class="card mt-0 ml-n2 mr-n2">
+                    <div class="card-header text-white bg-dark"><i class="fas fa-shopping-cart"></i> GIỎ HÀNG</div>
+                    <div class="card-body row">
+                        <img class="col-sm-5" src="images/shoppingcart.gif" alt="">
+                        <ul class="col-sm-7 list-group">
+                            <li class="list-group-item p-1 pl-3  text-dark">100 Items</li>
+                            <li class="list-group-item p-1 pl-3  text-dark">999 $</li>
+                            <li class="list-group-item p-1 pl-3"><a href="" style="text-decoration: none;">Chi tiết</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mt-3 ml-n2 mr-n2">
+                    <div class="card-header text-white bg-dark"><i class="fas fa-search"></i> TÌM KIẾM</div>
+                    <div class="card-body">
+                        <form class="form-inline">
+                            <input class="form-control col-9 mr-2" type="search" placeholder="Search">
+                            <button class="form-control col-2 btn btn-primary" type="submit"><i
+                                    class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="accordion mt-3 ml-n2 mr-n2" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header collapsed text-uppercase text-white bg-dark font-weight-bold" id="headingOne" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <i class="far fa-list-alt"></i> Chủng loại
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body p-0">
+                                <ul class="list-group catalog_">
+                                    <li class="list-group-item"><a href="#" class="text-dark"><i class="fas fa-mobile"></i> Điện thoại di động</a></li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"><i class="fas fa-laptop-code"></i> Laptop</a> </li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"><i class="fas fa-desktop"></i> Máy Tính Bàn</a></li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"><i class="fas fa-headphones-alt"></i> Tai nghe</a></li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"><i class="fas fa-charging-station"></i> Sạc</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header collapsed text-white bg-dark font-weight-bold" id="headingTwo" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-globe-asia"></i> NHÀ SẢN XUẤT
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body p-0">
+                                <ul class="list-group catalog_">
+                                    <li class="list-group-item"><a href="#" class="text-dark"> Samsung</a></li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"> Aple</a> </li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"> Xiaomi</a></li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"> Sony</a></li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"> LG</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header collapsed text-white bg-dark font-weight-bold" id="headingThree" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fas fa-star"></i> HÀNG ĐẶT BIỆT
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body p-0">
+                                <ul class="list-group catalog_">
+                                    <li class="list-group-item"><a href="#" class="text-dark"><i class="fas fa-hand-holding-usd"></i> Điện thoại cũ</a> </li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"><i class="fas fa-hand-holding-usd"></i> Laptop cũ</a> </li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"><i class="fas fa-hand-holding-usd"></i> Máy Tính Bàn cũ</a></li>
+                                    <li class="list-group-item"><a href="#" class="text-dark"><i class="fas fa-hand-holding-usd"></i> Phụ kiện cũ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer id="dk-footer" class="dk-footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-4">
+                    <div class="footer-awarad">
+                        <img src="images/icon/best.png" alt="">
+                        <p>ROYAL SHOPING MALL</p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-us">
+                                <div class="contact-icon">
+                                    <i class="fa fa-map-o" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-us contact-us-last">
+                                <div class="contact-icon">
+                                    <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="footer-widget footer-left-widget">
+                                <div class="section-heading">
+                                    <h3>Liên kết</h3>
+                                    <span class="animate-border border-black"></span>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="#">About us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Projects</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="#">Contact us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Testimonials</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <div class="footer-widget">
+                                <div class="section-heading">
+                                    <h3>Đăng ký</h3>
+                                    <span class="animate-border border-black"></span>
+                                </div>
+                                Reference site about Lorem Ipsum, giving information on its origins, as well.</p>
+                                <form action="#">
+                                    <div class="form-row">
+                                        <div class="col dk-footer-form">
+                                            <input type="email" class="form-control" placeholder="Email Address">
+                                            <button type="submit">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span>Copyright © 2020, All Right Reserved DungRoyal</span>
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-md-6">
+                        <div class="copyright-menu">
+                            <ul>
+                                <li>
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">Terms</a>
+                                </li>
+                                <li>
+                                    <a href="#">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.8.0/angular-route.js"></script>
+</body>
+
+<script>
+    var app = angular.module('myapp', ['ngRoute']);
+    app.config(function($routeProvider) {
+        $routeProvider
+            .when("/home", {
+                templateUrl: "pages/home.html",
+            })
+            .when("/about", {
+                templateUrl: "pages/about.html",
+            })
+            .when("/contact", {
+                templateUrl: "pages/contact.html",
+            })
+            .when("/gopy", {
+                templateUrl: "pages/test.html",
+            })
+            .otherwise({
+                redirectTo: "/home"
+            })
+    });
+
+    app.run(function($rootScope) {
+        $rootScope.$on('$routeChangeStart', function() {
+            $rootScope.loading = true;
+            console.log($rootScope.loading);
+        });
+        $rootScope.$on('$routeChangeSuccess', function() {
+            $rootScope.loading = false;
+            console.log($rootScope.loading);
+        });
+        $rootScope.$on('$routeChangeError', function() {
+            $rootScope.loading = false;
+            alert("Lỗi rồi, không tải được template");
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Bài 3 - Lab8 | AngularJS | Đoàn Quốc Dũng</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js "></script>
+    <link rel="icon" href="https://angular.io/assets/images/logos/angular/angular.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+
+<body ng-app="myapp">
+    <header class="row bg-primary" ng-include="'layout_3/header.html'">
+    </header>
+    <nav class="row bg-dark" ng-include="'layout_3/nav.html'">
+    </nav>
+    <div class="container">
+        <div class="row ">
+            <article class="row col-9 mt-3 pr-4">
+                <div ng-show="loading" class="pull-right label label-info">Loading...</div>
+                <div ng-view class="p-0 text-dark"></div>
+            </article>
+            <aside class="col-3 mt-3">
+                <div class="card mt-0 ml-n2 mr-n2">
+                    <div class="card-header text-white bg-dark"><i class="fas fa-shopping-cart"></i> GIỎ HÀNG</div>
+                    <div class="card-body row">
+                        <img class="col-sm-5" src="images/shoppingcart.gif" alt="">
+                        <ul class="col-sm-7 list-group">
+                            <li class="list-group-item p-1 pl-3  text-dark">100 Items</li>
+                            <li class="list-group-item p-1 pl-3  text-dark">999 $</li>
+                            <li class="list-group-item p-1 pl-3"><a href="" style="text-decoration: none;">Chi tiết</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mt-3 ml-n2 mr-n2">
+                    <div class="card-header text-white bg-dark"><i class="fas fa-search"></i> TÌM KIẾM</div>
+                    <div class="card-body">
+                        <form class="form-inline">
+                            <input class="form-control col-9 mr-2" type="search" placeholder="Search">
+                            <button class="form-control col-2 btn btn-primary" type="submit"><i
+                                    class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="accordion mt-3 ml-n2 mr-n2" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header collapsed text-uppercase text-white bg-dark font-weight-bold" id="headingOne" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <i class="far fa-list-alt"></i> Chủng loại
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body p-0">
+                                <ul class="list-group catalog_">
+                                    <li class="list-group-item"><a href="#!category/Điện thoại di động" class="text-dark"><i class="fas fa-mobile"></i> Điện thoại di động</a></li>
+                                    <li class="list-group-item"><a href="#!category/Máy tính xách tay" class="text-dark"><i class="fas fa-laptop-code"></i> Laptop</a> </li>
+                                    <li class="list-group-item"><a href="#!category/Máy Tính Bàn" class="text-dark"><i class="fas fa-desktop"></i> Máy Tính Bàn</a></li>
+                                    <li class="list-group-item"><a href="#!category/Tai nghe" class="text-dark"><i class="fas fa-headphones-alt"></i> Tai nghe</a></li>
+                                    <li class="list-group-item"><a href="#!category/Sạc" class="text-dark"><i class="fas fa-charging-station"></i> Sạc</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header collapsed text-white bg-dark font-weight-bold" id="headingTwo" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-globe-asia"></i> NHÀ SẢN XUẤT
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body p-0">
+                                <ul class="list-group catalog_">
+                                    <li class="list-group-item"><a href="#!supplier/Samsung" class="text-dark"> Samsung</a></li>
+                                    <li class="list-group-item"><a href="#!supplier/Aple" class="text-dark"> Aple</a> </li>
+                                    <li class="list-group-item"><a href="#!supplier/Xiaomi" class="text-dark"> Xiaomi</a></li>
+                                    <li class="list-group-item"><a href="#!supplier/Sony" class="text-dark"> Sony</a></li>
+                                    <li class="list-group-item"><a href="#!supplier/LG" class="text-dark"> LG</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header collapsed text-white bg-dark font-weight-bold" id="headingThree" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fas fa-star"></i> HÀNG ĐẶT BIỆT
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body p-0">
+                                <ul class="list-group catalog_">
+                                    <li class="list-group-item"><a href="#!special/Điện thoại cũ" class="text-dark"><i class="fas fa-hand-holding-usd"></i> Điện thoại cũ</a> </li>
+                                    <li class="list-group-item"><a href="#!special/Laptop cũ" class="text-dark"><i class="fas fa-hand-holding-usd"></i> Laptop cũ</a> </li>
+                                    <li class="list-group-item"><a href="#!special/Máy Tính Bàn cũ" class="text-dark"><i class="fas fa-hand-holding-usd"></i> Máy Tính Bàn cũ</a></li>
+                                    <li class="list-group-item"><a href="#!special/Phụ kiện cũ" class="text-dark"><i class="fas fa-hand-holding-usd"></i> Phụ kiện cũ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer id="dk-footer" class="dk-footer mt-5" ng-include="'layout_3/footer.html'">
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.8.0/angular-route.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/category-ctrl.js"></script>
+    <script src="js/supplier-ctrl.js"></script>
+    <script src="js/special-ctrl.js"></script>
+</body>
+
+
+</html>
