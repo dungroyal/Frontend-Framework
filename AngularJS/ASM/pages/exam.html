@@ -13,11 +13,11 @@
     <div class="card-wrapper col-md-9 col-lg-9 col-xl-9" ng-if="showExam">
         <div class="card text-center mb-5">
             <div class="card-header text-left font-weight-bold text-uppercase">
-                <div class="exam-title float-left pt-2 h4"><i class="fas fa-book-reader mr-1"></i> {{getExam.Name}}</div>
-                <div class="exam-time float-right ml-4 h4"><button class="btn btn-success p-2 m-0">Nộp bài</button></div>
-                <div class="exam-time float-right pt-2 h4"><i class="fas fa-hourglass-half"></i> 0{{m}}:{{s==0?"00":s}}</div>
+                <div class="exam-title float-left pt-2 h4 doNotCopy"><i class="fas fa-book-reader mr-1 "></i> {{getExam.Name}}</div>
+                <div class="exam-time float-right ml-4 h4"><button class="btn btn-success p-2 m-0" ng-click="submitExam()">Nộp bài</button></div>
+                <div class="exam-time float-right pt-2 h4 doNotCopy"><i class="fas fa-hourglass-half"></i> 0{{m}}:{{s==0?"00":s}}</div>
             </div>
-            <div class="card-body exam_content text-left" ng-repeat="item in quizs|limitTo:pageSize:start">
+            <div class="card-body exam_content text-left doNotCopy" ng-repeat="item in quizs|limitTo:pageSize:start">
                 <h5><strong>Câu {{start+1}}.</strong> {{item.Text}}</h5>
                 <hr>
                 <p class="card-text">
@@ -29,7 +29,7 @@
             </div>
             <div class="card-footer text-muted d-flex justify-content-between">
                 <!-- <div class="exam-next"><button class="btn btn-primary" ng-click="prev();"><i class="fas fa-backward"></i> Trước</button></div> -->
-                <div class="exam-next font-weight-bold h5">Điểm số: {{point}}/{{total}}</div>
+                <div class="exam-next font-weight-bold h5 doNotCopy">Điểm số: {{point}}/{{total}}</div>
                 <div class="exam-next"><button class="btn btn-primary" ng-click="next();">Tiếp theo <i class="fas fa-forward"></i></button></div>
             </div>
         </div>

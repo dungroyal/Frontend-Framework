@@ -203,6 +203,7 @@
             $scope.point = 0;
             $scope.idAnswer = 0;
             $scope.answer = 1;
+            $scope.oldAnswer = 0;
             // -----------------------------
 
             // Lấy dữ liệu về
@@ -227,23 +228,31 @@
                 }
             }
 
+            // Lấy đáp án
             $scope.checkAnswer = function(e) {
                 // Đáp án được chọn
                 $scope.idAnswer = e.target.attributes['id-answer'].value;
-                // Đáp án đúng
+                // Đáp án đúng 
                 $scope.answer = e.target.attributes['answer'].value;
-                console.log("Đáp án được chọn:" + $scope.idAnswer + "- Đáp án đúng:" + $scope.answer);
+                // console.log("Đáp án được chọn:" + $scope.idAnswer + "- Đáp án đúng:" + $scope.answer);
             };
 
             // Tính điểm
             $scope.next = function() {
+
                 if ($scope.start < $scope.quizs.length - $scope.pageSize) {
                     $scope.start += $scope.pageSize;
                 }
-                // Nếu đúng thì điểm sẽ cộng.
-                if ($scope.idAnswer == $scope.answer) {
+
+                // Nếu đúng và khác câu trả lời cũ thì điểm sẽ cộng.
+                if ($scope.idAnswer == $scope.answer && $scope.answer != $scope.oldAnswer) {
+                    $scope.oldAnswer = $scope.answer;
                     $scope.point += 1;
                 }
+            };
+
+            $scope.submitExam = function() {
+                alert("Thời gian làm bài: 0" + (4 - $scope.m) + ":" + (60 - $scope.s) + " giây. \nĐiểm của bạn là: " + $scope.point + "/" + $scope.total);
             };
         } else {
             $scope.showExam = false;

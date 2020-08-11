@@ -650,46 +650,41 @@ a {
     right: 0;
     top: 0;
 }
-#nav-exam{
+
+#nav-exam {
     height: 48vh;
     overflow: auto;
 }
 
-#nav-exam::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+#nav-exam::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5;
 }
 
-#nav-exam::-webkit-scrollbar
-{
+#nav-exam::-webkit-scrollbar {
     width: 4px;
     background-color: #F5F5F5;
 }
 
-#nav-exam::-webkit-scrollbar-thumb
-{
+#nav-exam::-webkit-scrollbar-thumb {
     background-color: #00000048;
     border: 2px solid #d49f9f;
 }
-body::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5;
 }
 
-body::-webkit-scrollbar
-{
+body::-webkit-scrollbar {
     width: 6px;
     background-color: #F5F5F5;
 }
 
-body::-webkit-scrollbar-thumb
-{
+body::-webkit-scrollbar-thumb {
     background-color: #00000048;
     border: 2px solid #d49f9f;
 }
-
 
 .profile-head h5 {
     color: #333;
@@ -765,4 +760,22 @@ body::-webkit-scrollbar-thumb
 .profile-tab p {
     font-weight: 600;
     color: #0062cc;
+}
+
+
+/* Cấm copy */
+
+.doNotCopy {
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
 }
