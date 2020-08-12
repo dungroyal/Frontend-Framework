@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+    <div class="container">
+        <div class="logo_main mr-2">
+            <a href="#!/">
+                <img src="images/favicon.png" alt="">
+            </a>
+            <!-- <p class="float-right text-white font-weight-bold">Thi online</p> -->
+        </div>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="#!/" class="nav-item nav-link active">Trang chủ</a>
+                <a href="#!about" class="nav-item nav-link">Giới thiệu</a>
+                <a href="#!contact" class="nav-item nav-link">Liên hệ</a>
+                <a href="#!feedback" class="nav-item nav-link">Góp ý</a>
+                <a href="#!faq" class="nav-item nav-link">Hỏi đáp</a>
+            </div>
+            <!-- Trước khi đăng nhập -->
+            <div ng-if="!fullname" class="navbar-nav ml-auto">
+                <a href="#!login" class="nav-item nav-link">Đăng nhập</a>
+                <a href="#!register" class="nav-item nav-link">Đăng kí</a>
+            </div>
+
+            <!-- Sau khi đăng nhập -->
+            <div ng-if="fullname" class="navbar-nav ml-auto dropdown open">
+                <img src="images/user_icon.png" class="btn dropdown-toggle rounded-circle" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </img>
+                <div class="dropdown-menu">
+                    <h6 class="dropdown-header"><strong>{{fullname}}</strong></h6>
+                    <a class="dropdown-item" href="#!profile">Quản lý tài khoản</a>
+                    <a class="dropdown-item" href="#!changepassword">Đổi mật khẩu</a>
+                    <a class="dropdown-item" ng-click="logout()">Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
